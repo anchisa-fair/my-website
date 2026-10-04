@@ -293,10 +293,6 @@ if (!isset($_SESSION['username'])) {
             </a>
             
             <div class="d-flex align-items-center gap-2 flex-wrap">
-                <!-- ปุ่มดาวน์โหลดใบงาน -->
-                <a href="assets/docs/worksheet_lesson1.pdf" download class="btn btn-outline-success btn-sm rounded-pill px-3 btn-playful">
-                    <i class="bi bi-file-earmark-arrow-down-fill me-1"></i> ดาวน์โหลดใบงาน
-                </a>
 
                 <a href="home.php" class="btn btn-outline-primary btn-sm rounded-pill px-3 btn-playful">
                     <i class="bi bi-grid-fill me-1"></i> หน้ารวมบทเรียน
