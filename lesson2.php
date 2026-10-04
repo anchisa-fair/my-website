@@ -4,7 +4,7 @@ if (!isset($_SESSION['username'])) {
     header("Location: login.php");
     exit();
 }
-include 'db_connect.php'; 
+// include 'db_connect.php'; 
 ?>
 <!DOCTYPE html>
 <html lang="th">
@@ -45,7 +45,6 @@ include 'db_connect.php';
             flex-direction: column;
         }
 
-        /* 🖼️ Top Main Banner Style (สไตล์แบบบทที่ 3) */
         .top-banner-wrapper {
             background-color: #0b1329;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
@@ -56,7 +55,6 @@ include 'db_connect.php';
             object-position: center;
         }
 
-        /* 🟢 1. Scroll Reading Progress Bar */
         #progress-bar {
             position: fixed;
             top: 0;
@@ -69,7 +67,6 @@ include 'db_connect.php';
             box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
         }
 
-        /* Navbar ดีไซน์มินิมอล มีสไตล์ */
         .navbar-custom {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
@@ -78,7 +75,6 @@ include 'db_connect.php';
             z-index: 1000;
         }
 
-        /* การ์ดเนื้อหาหลักแบบ Glass & Soft Shadow */
         .main-card {
             background: #ffffff;
             border: 2px solid #f1f5f9;
@@ -88,7 +84,6 @@ include 'db_connect.php';
             overflow: hidden;
         }
 
-        /* 🟢 2. Floating Blob Animation */
         .floating-blob {
             position: absolute;
             width: 180px;
@@ -107,7 +102,6 @@ include 'db_connect.php';
             100% { transform: translateY(-25px) scale(1.08); }
         }
 
-        /* Feature Cards */
         .fun-card {
             border: 1px solid #e2e8f0;
             border-radius: 20px;
@@ -121,7 +115,6 @@ include 'db_connect.php';
             box-shadow: 0 15px 30px rgba(79, 70, 229, 0.1);
         }
 
-        /* Badge Pills */
         .badge-pill-custom {
             padding: 8px 16px;
             border-radius: 30px;
@@ -129,23 +122,22 @@ include 'db_connect.php';
             letter-spacing: 0.5px;
         }
 
-        /* Table Styling */
         .table-custom-wrapper {
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid #e2e8f0;
         }
 
-        /* Code Box */
         .code-box {
             background-color: #1e1e2e;
             color: #a6adc8;
             border-radius: 14px;
             font-family: monospace;
-            padding: 1rem;
+            padding: 1.2rem;
+            line-height: 1.5;
+            overflow-x: auto;
         }
 
-        /* ปุ่มกดสไตล์ป๊อปอัพ */
         .btn-playful {
             border-radius: 50px;
             font-weight: 500;
@@ -157,7 +149,6 @@ include 'db_connect.php';
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
-        /* Pulse Animation สำหรับปุ่มแบบทดสอบ */
         .pulse-btn {
             animation: pulseGlow 2s infinite;
         }
@@ -167,7 +158,6 @@ include 'db_connect.php';
             100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
         }
 
-        /* Back To Top Button */
         #btn-back-to-top {
             position: fixed;
             bottom: 35px;
@@ -187,21 +177,28 @@ include 'db_connect.php';
             transform: scale(1.15) translateY(-3px);
             background: #4338ca;
         }
+
+        .accordion-button:not(.collapsed) {
+            background-color: var(--primary-soft);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(0,0,0,.125);
+        }
     </style>
 </head>
 <body>
 
-    <!-- 🟢 Progress Bar แสดงการอ่าน -->
     <div id="progress-bar"></div>
 
-    <!-- 🖼️ Top Main Banner (อยู่ด้านบน Navbar แบบบทที่ 3) -->
     <div class="top-banner-wrapper position-relative z-1 text-center">
         <a href="home.php">
             <img src="img/banner.png" alt="Internet of Things (IoT) Course & Principles" class="img-fluid w-100 header-banner-img">
         </a>
     </div>
 
-    <!-- 🌐 Top Navbar (รูปแบบเดียวกับบทที่ 1 และ 3) -->
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold text-primary d-flex align-items-center gap-2" href="home.php">
@@ -210,28 +207,22 @@ include 'db_connect.php';
             </a>
             
             <div class="d-flex align-items-center gap-2 flex-wrap">
-                <!-- ปุ่มดาวน์โหลดใบงาน -->
-                <a href="assets/docs/worksheet_lesson2.pdf" download class="btn btn-outline-success btn-sm rounded-pill px-3 btn-playful">
-                    <i class="bi bi-file-earmark-arrow-down-fill me-1"></i> ดาวน์โหลดใบงาน
-                </a>
 
                 <a href="home.php" class="btn btn-outline-primary btn-sm rounded-pill px-3 btn-playful">
                     <i class="bi bi-grid-fill me-1"></i> หน้ารวมบทเรียน
                 </a>
                 
                 <span class="badge bg-light text-dark border px-3 py-2 rounded-pill d-none d-md-inline-block">
-                    👋 สวัสดี, <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>
+                    👋 สวัสดี, <strong><?php echo htmlspecialchars($_SESSION['username'] ?? 'นักศึกษา'); ?></strong>
                 </span>
             </div>
         </div>
     </nav>
 
-    <!-- 📦 Main Container -->
     <div class="container mt-4 mb-5 flex-grow-1 position-relative">
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 
-                <!-- Breadcrumb -->
                 <nav aria-label="breadcrumb" class="mb-3">
                     <ol class="breadcrumb bg-transparent p-0 small">
                         <li class="breadcrumb-item"><a href="home.php" class="text-decoration-none text-primary"><i class="bi bi-house-door-fill me-1"></i>หน้าหลัก</a></li>
@@ -239,12 +230,10 @@ include 'db_connect.php';
                     </ol>
                 </nav>
 
-                <!-- Main Content Card -->
                 <div class="main-card p-4 p-md-5 position-relative">
                     <div class="floating-blob blob-1"></div>
                     <div class="floating-blob blob-2"></div>
 
-                    <!-- Header Section -->
                     <div class="border-bottom pb-4 mb-4 position-relative" style="z-index: 1;">
                         <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
                             <span class="badge bg-primary badge-pill-custom">
@@ -254,11 +243,11 @@ include 'db_connect.php';
                                 📡 Architecture & Protocols
                             </span>
                         </div>
-                        <h1 class="fw-bold text-dark display-6 mb-2">
+                        <h1 class="fw-bold text-dark display-5 mb-3">
                             สถาปัตยกรรมและโปรโตคอล IoT 🚀
                         </h1>
-                        <p class="text-muted fs-6 mb-0">
-                            ไขปริศนาโครงสร้างเบื้องหลังและภาษาการสื่อสารที่ช่วยให้อุปกรณ์เชื่อมต่อกันได้อย่างมีประสิทธิภาพ!
+                        <p class="text-muted fs-5 mb-0 lh-base">
+                            เจาะลึกโครงสร้างพื้นฐานระดับองค์กร การเลือกใช้เครือข่ายให้เหมาะสมกับฮาร์ดแวร์ และการสื่อสารข้อมูลเบื้องหลังที่เชื่อมโยงอุปกรณ์อัจฉริยะเข้ากับโลกธุรกิจดิจิทัล
                         </p>
                     </div>
 
@@ -275,6 +264,7 @@ include 'db_connect.php';
                                 </div>
                             </div>
                             <div class="ratio ratio-16x9">
+                                <!-- เปลี่ยน URL วิดีโอได้ที่นี่ -->
                                 <iframe src="https://www.youtube.com/embed/G2KjpICYwQ8?si=_gEcHZvXhk9z92q9" title="IoT Architecture Video" allowfullscreen></iframe>
                             </div>
                         </div>
@@ -283,37 +273,37 @@ include 'db_connect.php';
                     <!-- 🏗️ 1. IoT Architecture Section -->
                     <section class="mb-5 position-relative" style="z-index: 1;">
                         <h3 class="fw-bold text-primary mb-3 d-flex align-items-center gap-2">
-                            <span class="fs-3">🏗️</span> 1. สถาปัตยกรรมระบบ IoT (IoT Architecture)
+                            <span class="fs-3">🏗️️</span> 1. เจาะลึกสถาปัตยกรรมระบบ IoT (IoT Architecture)
                         </h3>
                         <p class="text-muted mb-4 fs-6">
-                            การแบ่งชั้นการทำงาน (Layers) ช่วยให้ผู้พัฒนาออกแบบระบบได้ง่ายขึ้น เหมือนกับการวางโครงสร้างบ้าน!
+                            สถาปัตยกรรม IoT คือกรอบแนวคิดในการจัดระเบียบการทำงานของระบบ ตั้งแต่การรับค่าจากเซนเซอร์ไปจนถึงการวิเคราะห์ข้อมูลเพื่อประกอบการตัดสินใจ การแบ่งชั้น (Layers) ช่วยให้นักพัฒนาแยกแยะและแก้ไขปัญหาได้ตรงจุด
                         </p>
 
-                        <div class="row g-4">
+                        <div class="row g-4 mb-4">
                             <!-- 3-Layer Card -->
                             <div class="col-lg-6">
                                 <div class="fun-card p-4 h-100 border-start border-4 border-info">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <h5 class="fw-bold text-info mb-0"><i class="bi bi-layers-fill me-2"></i>แบบ 3 ชั้น (Basic 3-Layer)</h5>
-                                        <span class="badge bg-info bg-opacity-10 text-info badge-pill-custom">สำหรับระบบทั่วไป</span>
+                                        <h5 class="fw-bold text-info mb-0"><i class="bi bi-layers-fill me-2"></i>สถาปัตยกรรม 3 ชั้น</h5>
+                                        <span class="badge bg-info bg-opacity-10 text-info badge-pill-custom">พื้นฐาน (Basic)</span>
                                     </div>
-                                    <p class="text-muted small">โครงสร้างพื้นฐานเรียบง่าย เรียงลำดับจากบนลงล่าง:</p>
+                                    <p class="text-muted small">โครงสร้างดั้งเดิมที่ใช้ในโปรเจกต์ขนาดเล็กหรือระบบที่ไม่ซับซ้อน ประกอบด้วย:</p>
 
                                     <div class="d-flex flex-column gap-3">
                                         <div class="p-3 rounded-4 bg-light border-start border-4 border-primary">
-                                            <span class="badge bg-primary mb-1">ชั้นที่ 3</span>
-                                            <strong class="d-block text-dark">Application Layer (ชั้นประยุกต์)</strong>
-                                            <small class="text-muted">หน้า UI แดชบอร์ดหรือแอปพลิเคชันมือถือที่ผู้ใช้กดสั่งงาน</small>
+                                            <span class="badge bg-primary mb-1">Layer 3: Application</span>
+                                            <strong class="d-block text-dark">ชั้นประยุกต์ใช้งาน</strong>
+                                            <small class="text-muted">แอปพลิเคชันหรือแดชบอร์ดที่ผู้ใช้มองเห็น เช่น แอปพลิเคชันควบคุมไฟในบ้านบนสมาร์ทโฟน</small>
                                         </div>
                                         <div class="p-3 rounded-4 bg-light border-start border-4 border-success">
-                                            <span class="badge bg-success mb-1">ชั้นที่ 2</span>
-                                            <strong class="d-block text-dark">Network Layer (ชั้นเครือข่าย)</strong>
-                                            <small class="text-muted">ทางเดินข้อมูล เช่น Wi-Fi, 4G/5G, Internet Gateway</small>
+                                            <span class="badge bg-success mb-1">Layer 2: Network</span>
+                                            <strong class="d-block text-dark">ชั้นเครือข่าย</strong>
+                                            <small class="text-muted">ทำหน้าที่ส่งผ่านข้อมูลที่เก็บได้ไปยังเซิร์ฟเวอร์ โดยอาศัยเทคโนโลยีอย่าง Wi-Fi, 4G, 5G</small>
                                         </div>
                                         <div class="p-3 rounded-4 bg-light border-start border-4 border-warning">
-                                            <span class="badge bg-warning text-dark mb-1">ชั้นที่ 1</span>
-                                            <strong class="d-block text-dark">Perception Layer (ชั้นรับรู้)</strong>
-                                            <small class="text-muted">ฮาร์ดแวร์ด่านหน้า เช่น เซนเซอร์วัดอุณหภูมิ, ปุ่มกด, กล้อง</small>
+                                            <span class="badge bg-warning text-dark mb-1">Layer 1: Perception</span>
+                                            <strong class="d-block text-dark">ชั้นรับรู้ (ฮาร์ดแวร์)</strong>
+                                            <small class="text-muted">ด่านหน้าสุดของระบบ คือตัวเซนเซอร์ (เช่น DHT11) หรือตัวสั่งการ (Actuator) ที่สัมผัสกับโลกกายภาพ</small>
                                         </div>
                                     </div>
                                 </div>
@@ -323,167 +313,235 @@ include 'db_connect.php';
                             <div class="col-lg-6">
                                 <div class="fun-card p-4 h-100 border-start border-4 border-purple" style="border-color: var(--accent-purple) !important;">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <h5 class="fw-bold mb-0" style="color: var(--accent-purple);"><i class="bi bi-diagram-3-fill me-2"></i>แบบ 5 ชั้น (Advanced 5-Layer)</h5>
-                                        <span class="badge text-white badge-pill-custom" style="background-color: var(--accent-purple);">ระดับองค์กร / Cloud</span>
+                                        <h5 class="fw-bold mb-0" style="color: var(--accent-purple);"><i class="bi bi-diagram-3-fill me-2"></i>สถาปัตยกรรม 5 ชั้น</h5>
+                                        <span class="badge text-white badge-pill-custom" style="background-color: var(--accent-purple);">ระดับองค์กร (Advanced)</span>
                                     </div>
-                                    <p class="text-muted small">เพิ่มระดับการวิเคราะห์ข้อมูลและวางแผนธุรกิจ:</p>
+                                    <p class="text-muted small">โครงสร้างที่ขยายต่อยอดเพื่อรองรับ Big Data และการประมวลผลขั้นสูงในธุรกิจเชิงพาณิชย์:</p>
 
                                     <div class="d-flex flex-column gap-2">
                                         <div class="p-2 px-3 rounded-3 bg-light d-flex align-items-center gap-3">
                                             <span class="badge rounded-circle p-2 text-white" style="background-color: #4a148c;">5</span>
-                                            <div><strong class="small text-dark">Business Layer:</strong> <span class="text-muted small">วิเคราะห์ข้อมูลเชิงธุรกิจ</span></div>
+                                            <div><strong class="small text-dark">Business Layer:</strong> <span class="text-muted small">ชั้นการจัดการธุรกิจ นำข้อมูลมาวิเคราะห์เพื่อสร้าง Business Model หรือกราฟคาดการณ์</span></div>
                                         </div>
                                         <div class="p-2 px-3 rounded-3 bg-light d-flex align-items-center gap-3">
                                             <span class="badge rounded-circle p-2 text-white" style="background-color: #6a1b9a;">4</span>
-                                            <div><strong class="small text-dark">Application Layer:</strong> <span class="text-muted small">ระบบแสดงผลเฉพาะทาง</span></div>
+                                            <div><strong class="small text-dark">Application Layer:</strong> <span class="text-muted small">ระบบแสดงผลและการแจ้งเตือนเฉพาะทาง</span></div>
                                         </div>
                                         <div class="p-2 px-3 rounded-3 bg-light d-flex align-items-center gap-3">
                                             <span class="badge rounded-circle p-2 text-white" style="background-color: #8e24aa;">3</span>
-                                            <div><strong class="small text-dark">Processing Layer:</strong> <span class="text-muted small">Cloud, Big Data & Edge AI</span></div>
+                                            <div><strong class="small text-dark">Processing Layer:</strong> <span class="text-muted small">เซิร์ฟเวอร์คลาวด์ ฐานข้อมูล และเทคโนโลยี AI สำหรับประมวลผล</span></div>
                                         </div>
                                         <div class="p-2 px-3 rounded-3 bg-light d-flex align-items-center gap-3">
                                             <span class="badge rounded-circle p-2 text-white" style="background-color: #ab47bc;">2</span>
-                                            <div><strong class="small text-dark">Transport Layer:</strong> <span class="text-muted small">ส่งข้อมูลด้วย MQTT, CoAP, HTTP</span></div>
+                                            <div><strong class="small text-dark">Transport Layer:</strong> <span class="text-muted small">การเลือกใช้โปรโตคอลการขนส่ง (MQTT, HTTP, CoAP)</span></div>
                                         </div>
                                         <div class="p-2 px-3 rounded-3 bg-light d-flex align-items-center gap-3">
                                             <span class="badge rounded-circle p-2 text-dark" style="background-color: #ce93d8;">1</span>
-                                            <div><strong class="small text-dark">Perception Layer:</strong> <span class="text-muted small">Edge Devices / Sensors</span></div>
+                                            <div><strong class="small text-dark">Perception Layer:</strong> <span class="text-muted small">อุปกรณ์ Edge Devices เช่น บอร์ดไมโครคอนโทรลเลอร์ต่างๆ</span></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <!-- Edge Computing Alert -->
+                        <div class="alert border-primary border-start border-4 bg-primary bg-opacity-10 p-4 rounded-3">
+                            <h5 class="fw-bold text-primary mb-2"><i class="bi bi-cpu-fill me-2"></i>ความรู้เพิ่มเติม: การประมวลผลที่ขอบข่าย (Edge Computing)</h5>
+                            <p class="mb-0 small text-dark">
+                                ในยุคปัจจุบัน ข้อมูลบางอย่างไม่จำเป็นต้องส่งขึ้น Cloud เสมอไป การใช้เทคโนโลยี <strong>Edge AI</strong> คือการฝัง AI ลงไปประมวลผลที่ฮาร์ดแวร์โดยตรง เช่น <strong>การใช้บอร์ด ESP32-CAM ประมวลผลจดจำใบหน้า (Face Recognition)</strong> ที่ตัวบอร์ดเองเลย เพื่อลดความหน่วง (Latency) และประหยัดแบนด์วิดท์เครือข่าย ส่งเพียงผลลัพธ์ว่า "ใครเข้าประตู" ไปยังเซิร์ฟเวอร์เท่านั้น!
+                            </p>
                         </div>
                     </section>
 
                     <!-- 🔄 2. Data Protocols Comparison -->
                     <section class="mb-5 position-relative" style="z-index: 1;">
                         <h3 class="fw-bold text-primary mb-3 d-flex align-items-center gap-2">
-                            <span class="fs-3">🔄</span> 2. เปรียบเทียบโปรโตคอลการรับส่งข้อมูล (IoT Protocols)
+                            <span class="fs-3">🔄</span> 2. โปรโตคอลการสื่อสาร (IoT Protocols)
                         </h3>
+                        <p class="text-muted mb-4 fs-6">
+                            โปรโตคอลคือ "ภาษาและกฎเกณฑ์" ที่อุปกรณ์ใช้คุยกัน การเลือกโปรโตคอลผิดอาจทำให้ระบบอืด หรือแบตเตอรี่ของอุปกรณ์หมดไวเกินความจำเป็น
+                        </p>
                         
-                        <div class="table-custom-wrapper shadow-sm mb-4">
-                            <table class="table table-hover align-middle mb-0 text-center">
+                        <div class="table-custom-wrapper shadow-sm mb-4 overflow-x-auto">
+                            <table class="table table-hover align-middle mb-0 text-center" style="min-width: 600px;">
                                 <thead class="table-primary">
                                     <tr>
-                                        <th class="py-3 text-start ps-3">คุณสมบัติ ⚙️</th>
-                                        <th class="py-3 text-primary"><i class="bi bi-lightning-charge-fill me-1"></i> MQTT</th>
-                                        <th class="py-3 text-success"><i class="bi bi-globe me-1"></i> HTTP / REST API</th>
+                                        <th class="py-3 text-start ps-3" style="width: 20%;">คุณสมบัติ</th>
+                                        <th class="py-3 text-primary" style="width: 25%;"><i class="bi bi-lightning-charge-fill me-1"></i> MQTT</th>
+                                        <th class="py-3 text-success" style="width: 25%;"><i class="bi bi-globe me-1"></i> HTTP / REST API</th>
+                                        <th class="py-3 text-danger" style="width: 25%;"><i class="bi bi-arrow-left-right me-1"></i> WebSockets</th>
                                     </tr>
                                 </thead>
                                 <tbody class="small">
                                     <tr>
-                                        <td class="fw-bold text-start ps-3 bg-light">รูปแบบการทำงาน</td>
-                                        <td><span class="badge bg-primary bg-opacity-10 text-primary">Publish / Subscribe</span></td>
-                                        <td><span class="badge bg-success bg-opacity-10 text-success">Request / Response</span></td>
+                                        <td class="fw-bold text-start ps-3 bg-light">สถาปัตยกรรมการส่ง</td>
+                                        <td>Publish / Subscribe (มี Broker ตรงกลาง)</td>
+                                        <td>Request / Response (Client ร้องขอ, Server ตอบกลับ)</td>
+                                        <td>Full-Duplex (เปิดช่องทางการเชื่อมต่อค้างไว้ตลอด)</td>
                                     </tr>
                                     <tr>
-                                        <td class="fw-bold text-start ps-3 bg-light">ขนาด Header ข้อมูล</td>
-                                        <td class="text-primary fw-bold">⚡ เล็กมากๆ (~2 Bytes)</td>
-                                        <td class="text-warning text-dark">📦 ขนาดใหญ่กว่า</td>
+                                        <td class="fw-bold text-start ps-3 bg-light">Overhead (ขนาดส่วนหัวข้อมูล)</td>
+                                        <td class="text-primary fw-bold">⚡ เล็กมาก (เพียง 2 Bytes)</td>
+                                        <td class="text-warning text-dark">📦 ใหญ่ (มี Header จำนวนมาก)</td>
+                                        <td class="text-success">ปานกลาง</td>
                                     </tr>
                                     <tr>
                                         <td class="fw-bold text-start ps-3 bg-light">การประหยัดพลังงาน</td>
                                         <td><span class="badge bg-success">ประหยัดแบตเตอรี่สูงมาก 🔋</span></td>
                                         <td><span class="badge bg-secondary">ใช้พลังงานปานกลาง-สูง 🪫</span></td>
+                                        <td><span class="badge bg-secondary">กินไฟเพราะต้องต่อค้างไว้ 🪫</span></td>
                                     </tr>
                                     <tr>
-                                        <td class="fw-bold text-start ps-3 bg-light">ตัวอย่างการนำไปใช้</td>
-                                        <td>ส่งค่าเซนเซอร์รวดเร็ว, Smart Home, ESP32</td>
-                                        <td>ส่งรูปภาพขนาดใหญ่, Webhooks, LINE API</td>
+                                        <td class="fw-bold text-start ps-3 bg-light">การนำไปใช้งานที่เหมาะสม</td>
+                                        <td>เซนเซอร์บ้านอัจฉริยะ, ส่งค่าอุณหภูมิ, ควบคุม Relay</td>
+                                        <td>ส่งรูปภาพขนาดใหญ่, ทำ Webhooks เชื่อมต่อกับ LINE API</td>
+                                        <td>การแสดงผลกราฟแดชบอร์ดแบบ Real-time บนหน้าเว็บ</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-
-                        <!-- MQTT Topic Box -->
-                        <div class="fun-card p-4 bg-dark text-white border-0">
-                            <div class="row align-items-center">
-                                <div class="col-md-7">
-                                    <h5 class="fw-bold text-warning mb-2"><i class="bi bi-code-slash me-2"></i>เกร็ดความรู้: MQTT Topic & JSON Format 💡</h5>
-                                    <p class="small text-light opacity-75 mb-3">
-                                        โปรโตคอล MQTT ส่งข้อมูลผ่านสิ่งที่เรียกว่า <strong>"Topic"</strong> และนิยมห่อข้อมูลด้วย <strong>JSON</strong> ที่เบาและอ่านง่าย!
-                                    </p>
-                                    <div class="code-box small mb-2">
-                                        <span class="text-info">// ตัวอย่าง Topic:</span> home/bedroom/dht11<br>
-                                        <span class="text-info">// ตัวอย่าง Payload (JSON):</span><br>
-                                        { <span class="text-warning">"temp"</span>: 28.5, <span class="text-warning">"humidity"</span>: 65.0 }
-                                    </div>
-                                </div>
-                                <div class="col-md-5 text-center mt-3 mt-md-0">
-                                    <div class="p-3 bg-secondary bg-opacity-25 rounded-4 border border-secondary">
-                                        <i class="bi bi-diagram-3 fa-2x text-info mb-2"></i>
-                                        <h6 class="fw-bold text-white mb-1">Publisher ➔ Broker ➔ Subscriber</h6>
-                                        <small class="text-light opacity-75 d-block">เซนเซอร์ส่งค่าเข้า Broker ใครเปิดฟัง Topic ไหน ก็จะได้รับข้อมูลทันที!</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
+              
                     <!-- 📡 3. Wireless Networks -->
                     <section class="mb-5 position-relative" style="z-index: 1;">
                         <h3 class="fw-bold text-primary mb-3 d-flex align-items-center gap-2">
-                            <span class="fs-3">📡</span> 3. เครือข่ายไร้สายสำหรับ IoT (Wireless Networks)
+                            <span class="fs-3">📡</span> 3. เทคโนโลยีเครือข่ายไร้สาย (Wireless Networks)
                         </h3>
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="fun-card p-4 h-100 border-start border-4 border-success">
-                                    <div class="d-flex align-items-center gap-3 mb-3">
-                                        <span class="fs-2 text-success"><i class="bi bi-wifi"></i></span>
-                                        <div>
-                                            <h5 class="fw-bold mb-0">ระยะใกล้ (Short-Range)</h5>
-                                            <small class="text-muted">เหมาะในบ้าน อาคาร ระยะไม่เกิน 100 เมตร</small>
+                        <p class="text-muted mb-4 fs-6">พิจารณาจากการใช้งานจริงระหว่าง "ระยะทางที่ต้องการส่ง" กับ "ปริมาณข้อมูลที่ต้องการส่ง" (Bandwidth vs Range)</p>
+                        
+                        <div class="accordion" id="networkAccordion">
+                            <!-- Short Range -->
+                            <div class="accordion-item border-0 mb-3 shadow-sm rounded-4 overflow-hidden">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button bg-white text-dark fw-bold" type="button" data-bs-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                        <i class="bi bi-wifi text-primary me-2"></i> เครือข่ายระยะใกล้ (Short-Range & PAN/LAN)
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#networkAccordion">
+                                    <div class="accordion-body bg-light text-muted small">
+                                        <div class="row g-3">
+                                            <div class="col-md-4">
+                                                <strong class="text-dark d-block mb-1">Wi-Fi (802.11)</strong>
+                                                รองรับความเร็วสูง ส่งวิดีโอหรือรูปภาพได้สบาย เหมาะสำหรับโมดูลพ่วงต่ออินเทอร์เน็ตที่เสียบปลั๊กไฟทิ้งไว้ตลอด (เช่น หลอดไฟอัจฉริยะ, กล้องวงจรปิด) ข้อเสียคือใช้พลังงานเยอะมาก
+                                            </div>
+                                            <div class="col-md-4">
+                                                <strong class="text-dark d-block mb-1">Bluetooth / BLE</strong>
+                                                Bluetooth Low Energy (BLE) ถูกออกแบบมาให้กินไฟต่ำเป็นพิเศษ ทำงานผ่านแบตเตอรี่กระดุมได้เป็นปีๆ เหมาะกับ Smart Watch, อุปกรณ์การแพทย์สวมใส่ หรือการเชื่อมต่อกับมือถือระยะประชิด
+                                            </div>
+                                            <div class="col-md-4">
+                                                <strong class="text-dark d-block mb-1">Zigbee / Z-Wave</strong>
+                                                มีความสามารถในการทำ <strong>Mesh Topology</strong> คืออุปกรณ์แต่ละตัวสามารถทำหน้าที่เป็นทวนสัญญาณส่งต่อให้กันเป็นทอดๆ ได้ นิยมใช้เชื่อมต่อเซนเซอร์ประตู สวิตช์ไฟ ในระบบ Home Automation ครบวงจร
+                                            </div>
                                         </div>
                                     </div>
-                                    <ul class="list-unstyled space-y-2 mb-0 small">
-                                        <li class="mb-2"><strong class="text-success"><i class="bi bi-check-circle-fill me-1"></i> Wi-Fi:</strong> ความเร็วสูง แต็กินไฟเยอะ</li>
-                                        <li class="mb-2"><strong class="text-success"><i class="bi bi-check-circle-fill me-1"></i> Bluetooth / BLE:</strong> กินไฟต่ำมาก เหมาะกับอุปกรณ์สวมใส่</li>
-                                        <li><strong class="text-success"><i class="bi bi-check-circle-fill me-1"></i> Zigbee:</strong> ต่อกันเป็น Mesh Network เชื่อมหลอดไฟ/สวิตช์</li>
-                                    </ul>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="fun-card p-4 h-100 border-start border-4 border-warning">
-                                    <div class="d-flex align-items-center gap-3 mb-3">
-                                        <span class="fs-2 text-warning"><i class="bi bi-broadcast"></i></span>
-                                        <div>
-                                            <h5 class="fw-bold mb-0">ระยะไกล (Long-Range LPWAN)</h5>
-                                            <small class="text-muted">ครอบคลุมระดับอำเภอ/เมือง (หลายกิโลเมตร)</small>
+
+                            <!-- Long Range -->
+                            <div class="accordion-item border-0 shadow-sm rounded-4 overflow-hidden">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-white text-dark fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                        <i class="bi bi-broadcast-pin text-warning me-2"></i> เครือข่ายระยะไกล (LPWAN & Cellular)
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#networkAccordion">
+                                    <div class="accordion-body bg-light text-muted small">
+                                        <div class="row g-3">
+                                            <div class="col-md-4">
+                                                <strong class="text-dark d-block mb-1">LoRa / LoRaWAN</strong>
+                                                เทคโนโลยีคลื่นวิทยุ ส่งผ่านสิ่งกีดขวางหรือป่าเขาได้ดีเยี่ยม ส่งข้อมูลได้ไกล 5-15 กิโลเมตร โดยใช้พลังงานน้อยมาก เหมาะสำหรับเซนเซอร์การเกษตร สมาร์ทฟาร์ม หรือการวัดระดับน้ำ
+                                            </div>
+                                            <div class="col-md-4">
+                                                <strong class="text-dark d-block mb-1">NB-IoT (Narrowband IoT)</strong>
+                                                ทำงานบนคลื่นความถี่มือถือที่ค่ายบริการ (AIS, True, Dtac) ติดตั้งไว้แล้ว มีความเสถียรและทะลุทะลวงอาคารได้ดี เหมาะสำหรับระบบมิเตอร์น้ำ/ไฟอัจฉริยะระดับเมือง หรือ Smart City
+                                            </div>
+                                            <div class="col-md-4">
+                                                <strong class="text-dark d-block mb-1">4G LTE / 5G</strong>
+                                                แบนด์วิดท์มหาศาล ความหน่วงต่ำมาก เหมาะกับการใช้งานที่ต้องสตรีมมิ่งข้อมูลจำนวนมหาศาลตลอดเวลา เช่น รถยนต์ไร้คนขับ (Autonomous Vehicles) หรือระบบวิเคราะห์วิดีโอ AI ระยะไกล
+                                            </div>
                                         </div>
                                     </div>
-                                    <ul class="list-unstyled space-y-2 mb-0 small">
-                                        <li class="mb-2"><strong class="text-warning text-dark"><i class="bi bi-check-circle-fill me-1"></i> LoRaWAN:</strong> ส่งข้อมูลไกลข้ามเขา ใช้พลังงานต่ำมาก</li>
-                                        <li class="mb-2"><strong class="text-warning text-dark"><i class="bi bi-check-circle-fill me-1"></i> NB-IoT:</strong> ส่งผ่านเสาสัญญาณค่ายมือถือ ครอบคลุมทั่วประเทศ</li>
-                                        <li><strong class="text-warning text-dark"><i class="bi bi-check-circle-fill me-1"></i> 4G / 5G:</strong> ส่งคลิปวิดีโอ/รูปภาพความเร็วสูง</li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </section>
 
-                    <!-- 🔒 4. IoT Security & CoAP -->
+                    <!-- 🔒 4. IoT Security -->
                     <section class="mb-5 position-relative" style="z-index: 1;">
                         <h3 class="fw-bold text-primary mb-3 d-flex align-items-center gap-2">
-                            <span class="fs-3">🛡️</span> 4. ความปลอดภัย & โปรโตคอล CoAP
+                            <span class="fs-3">🛡️</span> 4. ความปลอดภัยของระบบ (IoT Security Concepts)
                         </h3>
                         <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="fun-card p-4 h-100">
-                                    <h5 class="fw-bold text-primary mb-3"><i class="bi bi-shield-lock-fill me-2"></i> CoAP Protocol</h5>
-                                    <p class="text-muted small mb-3">
-                                        <strong>Constrained Application Protocol (CoAP)</strong> ออกแบบมาสำหรับไมโครคอนโทรลเลอร์ขนาดเล็กมากๆ ทำงานบน UDP เพื่อประหยัดพลังงาน
-                                    </p>
-                                    <span class="badge bg-primary bg-opacity-10 text-primary p-2 rounded-3 small">✨ จุดเด่น: สื่อสารกับ HTTP Web Server ได้ง่าย</span>
+                            <div class="col-md-5">
+                                <div class="fun-card p-4 h-100 bg-white border-top border-4 border-danger">
+                                    <h5 class="fw-bold text-danger mb-3"><i class="bi bi-shield-x me-2"></i>ช่องโหว่ยอดฮิต</h5>
+                                    <ul class="list-unstyled small text-muted space-y-2 mb-0">
+                                        <li class="mb-2"><i class="bi bi-x-circle text-danger me-1"></i> การตั้งรหัสผ่าน Default (เช่น admin/admin) บนตัวฮาร์ดแวร์</li>
+                                        <li class="mb-2"><i class="bi bi-x-circle text-danger me-1"></i> การส่งข้อมูลแบบ Plain Text ไม่เข้ารหัส ทำให้อาจถูกดักจับข้อมูลกลางทางได้ (Man-in-the-Middle)</li>
+                                        <li><i class="bi bi-x-circle text-danger me-1"></i> ไม่อัปเดตเฟิร์มแวร์ ทำให้แฮกเกอร์โจมตีผ่านช่องโหว่เก่าๆ ได้</li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="fun-card p-4 h-100">
-                                    <h5 class="fw-bold text-danger mb-3"><i class="bi bi-key-fill me-2"></i> IoT Security Essentials</h5>
-                                    <ul class="list-group list-group-flush small">
-                                        <li class="list-group-item bg-transparent px-0"><strong class="text-dark">🔒 Encryption:</strong> เข้ารหัสข้อมูลระหว่างรับส่ง (SSL/TLS)</li>
-                                        <li class="list-group-item bg-transparent px-0"><strong class="text-dark">🔑 Authentication:</strong> ยืนยันตัวตนด้วย Token / Secret Key</li>
-                                        <li class="list-group-item bg-transparent px-0"><strong class="text-dark">🔄 OTA Updates:</strong> อัปเดตเฟิร์มแวร์เพื่อปิดช่องโหว่</li>
-                                    </ul>
+                            <div class="col-md-7">
+                                <div class="fun-card p-4 h-100 border-0" style="background-color: #f1f5f9;">
+                                    <h5 class="fw-bold text-dark mb-3"><i class="bi bi-check-shield-fill text-success me-2"></i>หลักการ CIA Triad ใน IoT</h5>
+                                    <div class="row g-3 small">
+                                        <div class="col-sm-4">
+                                            <div class="p-3 bg-white rounded-3 shadow-sm h-100">
+                                                <strong class="text-primary d-block mb-1">C: Confidentiality</strong>
+                                                <span class="text-muted">ความลับของข้อมูล: ปกป้องโดยการใช้ <strong>Encryption (TLS/SSL)</strong> หรือ MQTTS เมื่อสื่อสาร</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="p-3 bg-white rounded-3 shadow-sm h-100">
+                                                <strong class="text-success d-block mb-1">I: Integrity</strong>
+                                                <span class="text-muted">ความถูกต้อง: ตรวจสอบว่าข้อมูลไม่ถูกแก้ไขกลางทางด้วย <strong>Checksum / Hashing</strong></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="p-3 bg-white rounded-3 shadow-sm h-100">
+                                                <strong class="text-warning text-dark d-block mb-1">A: Availability</strong>
+                                                <span class="text-muted">ความพร้อมใช้งาน: ระบบต้องไม่ล่ม จัดทำระบบเซิร์ฟเวอร์สำรอง และป้องกันการโจมตีแบบ DDoS</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3 p-2 bg-white rounded-3 border-start border-3 border-primary small">
+                                        💡 <strong>การจัดการสิทธิ์ (Authentication):</strong> ในการเรียกใช้ API บริการภายนอก ควรใช้ <strong>Token/Bearer Keys</strong> แทนรหัสผ่านจริงเสมอ (เช่น การออก Line Notify Token สำหรับส่งข้อความแจ้งเตือน)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 💼 5. IoT & Digital Business -->
+                    <section class="mb-5 position-relative" style="z-index: 1;">
+                        <div class="p-4 p-md-5 rounded-4 shadow-sm" style="background-color: var(--primary-soft); border: 1px solid #c7d2fe;">
+                            <h4 class="fw-bold text-primary mb-3"><i class="bi bi-bar-chart-steps me-2"></i> 5. โครงสร้าง IoT กับการต่อยอดธุรกิจดิจิทัล (IoT in Digital Business)</h4>
+                            <p class="text-muted fs-6 mb-4">
+                                สถาปัตยกรรม IoT ไม่ใช่แค่เรื่องของสายไฟและเซนเซอร์ แต่เป็น "ขุมทรัพย์ข้อมูล" ที่สามารถเปลี่ยนโมเดลธุรกิจ (Business Model Canvas) แบบดั้งเดิม ให้กลายเป็นธุรกิจดิจิทัลที่สร้างรายได้มหาศาล:
+                            </p>
+                            
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="bg-white p-4 rounded-3 h-100 shadow-sm border-0">
+                                        <div class="d-flex align-items-center gap-3 mb-2">
+                                            <div class="bg-info bg-opacity-10 text-info p-2 rounded-circle fs-5"><i class="bi bi-graph-up-arrow"></i></div>
+                                            <h6 class="fw-bold mb-0">1. Data Monetization (การสร้างมูลค่าจากข้อมูล)</h6>
+                                        </div>
+                                        <p class="small text-muted mb-0 ps-5">
+                                            ข้อมูลที่เก็บจาก Perception Layer สามารถนำมาวิเคราะห์พฤติกรรมผู้บริโภค เช่น ข้อมูลการใช้ไฟฟ้า หรืออุณหภูมิในบ้าน เพื่อเสนอขายสินค้าหรือบริการที่ตรงใจลูกค้าในเวลาที่ถูกต้อง (Personalized Marketing)
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="bg-white p-4 rounded-3 h-100 shadow-sm border-0">
+                                        <div class="d-flex align-items-center gap-3 mb-2">
+                                            <div class="bg-success bg-opacity-10 text-success p-2 rounded-circle fs-5"><i class="bi bi-arrow-repeat"></i></div>
+                                            <h6 class="fw-bold mb-0">2. Everything-as-a-Service (XaaS)</h6>
+                                        </div>
+                                        <p class="small text-muted mb-0 ps-5">
+                                            เปลี่ยนจากการขายขาดฮาร์ดแวร์ เป็นการให้บริการแบบสมัครสมาชิก (Subscription Model) เช่น ให้บริการ "ระบบรักษาความปลอดภัยอัจฉริยะ" จ่ายรายเดือน แลกกับการอัปเดตซอฟต์แวร์และดูแลเซิร์ฟเวอร์
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -492,23 +550,33 @@ include 'db_connect.php';
                     <!-- 💡 Case Studies -->
                     <section class="mb-5 position-relative" style="z-index: 1;">
                         <div class="fun-card p-4 p-md-5 text-white" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);">
-                            <h4 class="fw-bold text-warning mb-4"><i class="bi bi-lightbulb-fill me-2"></i> ตัวอย่างกรณีศึกษาการเลือกใช้งาน (Case Studies)</h4>
+                            <h4 class="fw-bold text-warning mb-4"><i class="bi bi-lightbulb-fill me-2"></i> สรุปกรณีศึกษาและการเลือกใช้งานจริง (Real-world Scenarios)</h4>
                             <div class="row g-4">
                                 <div class="col-md-6">
-                                    <div class="p-3 rounded-4 bg-white bg-opacity-10 border border-white border-opacity-10">
-                                        <h6 class="fw-bold text-info">🏡 Smart Home ควบคุมไฟผ่านบอร์ด ESP32</h6>
-                                        <p class="small text-light opacity-75 mb-0">
-                                            <strong>ควรเลือกใช้:</strong> <span class="badge bg-primary">Wi-Fi</span> + <span class="badge bg-success">MQTT</span><br>
-                                            ต้องการการรับส่งคำสั่งสั้นๆ ที่รวดเร็ว เรียลไทม์
+                                    <div class="p-4 rounded-4 bg-white bg-opacity-10 border border-white border-opacity-10 h-100">
+                                        <h6 class="fw-bold text-info"><i class="bi bi-house-gear-fill me-2"></i> โปรเจกต์ Smart Home ควบคุมอัตโนมัติ</h6>
+                                        <hr class="border-secondary my-2">
+                                        <p class="small text-light opacity-75 mb-2">
+                                            <strong>สถาปัตยกรรม:</strong> 3-Layer Basic<br>
+                                            <strong>เครือข่าย & ฮาร์ดแวร์:</strong> บอร์ดไมโครคอนโทรลเลอร์ (เช่น NodeMCU/ESP32) เชื่อมต่อเครือข่าย <span class="badge bg-primary">Wi-Fi บ้าน</span><br>
+                                            <strong>โปรโตคอลการสื่อสาร:</strong> <span class="badge bg-success">MQTT</span><br>
+                                        </p>
+                                        <p class="small text-white-50 mb-0">
+                                            <em>เหตุผล:</em> ต้องการการตอบสนองคำสั่งเปิด-ปิดไฟแบบทันทีทันใด (Low Latency) และข้อมูลเซนเซอร์อุณหภูมิ/ความชื้นมีขนาดเล็ก ไม่จำเป็นต้องใช้แบนด์วิดท์สูง
                                         </p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="p-3 rounded-4 bg-white bg-opacity-10 border border-white border-opacity-10">
-                                        <h6 class="fw-bold text-pink" style="color: var(--accent-pink);">📸 ระบบ Edge AI สแกนใบหน้าเข้าเรียน</h6>
-                                        <p class="small text-light opacity-75 mb-0">
-                                            <strong>ควรเลือกใช้:</strong> <span class="badge bg-primary">Wi-Fi/4G</span> + <span class="badge bg-warning text-dark">HTTP REST API</span><br>
-                                            ต้องการส่งรูปภาพขนาดใหญ่และแจ้งเตือนผ่าน LINE Notify
+                                    <div class="p-4 rounded-4 bg-white bg-opacity-10 border border-white border-opacity-10 h-100">
+                                        <h6 class="fw-bold text-pink" style="color: var(--accent-pink);"><i class="bi bi-person-bounding-box me-2"></i> ระบบ Edge AI วิเคราะห์ใบหน้าเพื่อเข้างาน</h6>
+                                        <hr class="border-secondary my-2">
+                                        <p class="small text-light opacity-75 mb-2">
+                                            <strong>สถาปัตยกรรม:</strong> 5-Layer พร้อม Edge Computing<br>
+                                            <strong>เครือข่าย & ฮาร์ดแวร์:</strong> กล้องวงจรปิด/บอร์ดประมวลผลภาพ (เช่น ESP32-CAM) เชื่อมต่อ <span class="badge bg-primary">Wi-Fi / 4G</span><br>
+                                            <strong>โปรโตคอลการสื่อสาร:</strong> <span class="badge bg-warning text-dark">HTTP REST API</span><br>
+                                        </p>
+                                        <p class="small text-white-50 mb-0">
+                                            <em>เหตุผล:</em> ประมวลผลภาพที่ตัวขอบข่าย (Edge) จากนั้นส่งข้อมูลขนาดใหญ่หรือไฟล์ภาพถ่าย รวมถึงทำ Webhook ร่วมกับ Token เพื่อแจ้งเตือนรายงานผลผ่านแอปพลิเคชันภายนอกได้อย่างแม่นยำ
                                         </p>
                                     </div>
                                 </div>
@@ -522,12 +590,12 @@ include 'db_connect.php';
                             <div class="card-body p-4 p-md-5 text-center">
                                 <h3 class="fw-bold mb-3">🎉 เรียนรู้เนื้อหาบทนี้เรียบร้อยแล้วหรือยัง?</h3>
                                 <p class="mb-4 text-white-50 small lh-lg px-md-5">
-                                    การเลือกสถาปัตยกรรมและโปรโตคอลที่เหมาะสมจะช่วยให้ระบบ IoT ของคุณทำงานได้อย่างเสถียรและประหยัดพลังงานมากที่สุด!
+                                    การออกแบบโครงสร้างที่ดี และการเลือกโปรโตคอล/เครือข่ายที่ตอบโจทย์ตั้งแต่เริ่มต้น จะช่วยลดปัญหาในการขยายระบบ (Scalability) ลดต้นทุน และสามารถนำข้อมูลไปต่อยอดทางธุรกิจได้อย่างมีประสิทธิภาพสูงสุด!
                                 </p>
                                 
                                 <a href="https://docs.google.com/forms/d/e/1FAIpQLScoOgV2SLMrkakptt6XYHXzffs3P8uOtkPpwnXTDIgOhns0Rg/viewform?usp=publish-editor" 
                                    target="_blank" 
-                                   class="btn btn-light btn-lg rounded-pill px-5 fw-bold text-primary btn-playful pulse-btn">
+                                   class="btn btn-light btn-lg rounded-pill px-5 fw-bold text-primary btn-playful pulse-btn shadow">
                                    ✍️ ทำแบบทดสอบวัดความรู้ บทที่ 2
                                 </a>
                             </div>
