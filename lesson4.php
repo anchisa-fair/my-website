@@ -264,10 +264,6 @@ if (file_exists('db_connect.php')) {
             </a>
             
             <div class="d-flex align-items-center gap-2 flex-wrap">
-                <!-- ปุ่มดาวน์โหลดใบงาน -->
-                <a href="assets/docs/worksheet_lesson4.pdf" download class="btn btn-outline-success btn-sm rounded-pill px-3 btn-playful">
-                    <i class="bi bi-file-earmark-arrow-down-fill me-1"></i> ดาวน์โหลดใบงาน
-                </a>
 
                 <a href="home.php" class="btn btn-outline-primary btn-sm rounded-pill px-3 btn-playful">
                     <i class="bi bi-grid-fill me-1"></i> หน้ารวมบทเรียน
@@ -313,7 +309,7 @@ if (file_exists('db_connect.php')) {
                             ความมั่นคงปลอดภัยและการปกป้องข้อมูลในระบบ IoT 🔐
                         </h1>
                         <p class="text-light opacity-75 fs-6 mb-0 lh-lg">
-                            เกราะป้องกันโลกดิจิทัล! เรียนรู้ภัยคุกคามทางไซเบอร์ จุดอ่อนของฮาร์ดแวร์ การเข้ารหัสข้อมูล Zero Trust Architecture และหลักการคุ้มครองข้อมูลส่วนบุคคลตามกฎหมาย PDPA
+                            เจาะลึกภัยคุกคามทางไซเบอร์ กลไกการเข้ารหัสข้อมูล (SSL/TLS) สถาปัตยกรรมแบบ Zero Trust และความรับผิดชอบตามกฎหมายคุ้มครองข้อมูลส่วนบุคคล (PDPA)
                         </p>
                     </div>
 
@@ -339,7 +335,7 @@ if (file_exists('db_connect.php')) {
                     <section class="mb-5 position-relative" style="z-index: 1;">
                         <div class="p-4 rounded-4" style="background: linear-gradient(135deg, #fef2f2 0%, #ffe4e6 100%); border: 1px solid #fecdd3;">
                             <h4 class="fw-bold text-danger mb-2 d-flex align-items-center gap-2">
-                                <span class="fs-4">🛡️</span> การรักษาความปลอดภัยของ IoT คืออะไร?
+                                <span class="fs-4">🛡️</span> ความมั่นคงปลอดภัยในระบบ IoT คืออะไร?
                             </h4>
                             <p class="text-secondary mb-0 small lh-lg">
                                 <strong>ความปลอดภัยของ IoT (IoT Security)</strong> คือ แขนงสำคัญของ Cybersecurity ที่มุ่งเน้นการปกป้อง ตรวจสอบ และแก้ไขภัยคุกคามบนอุปกรณ์เชื่อมต่ออินเทอร์เน็ต ครอบคลุมตั้งแต่เซนเซอร์ บอร์ดไมโครคอนโทรลเลอร์ (ESP32/Arduino) กล้องวงจรปิด กลอนประตูอัจฉริยะ ไปจนถึงระบบควบคุมในโรงงานอุตสาหกรรม โดยมีเป้าหมายเพื่อป้องกันไม่ให้แฮกเกอร์ลักลอบเข้าถึงข้อมูล ดักฟัง หรือใช้บอร์ดเป็นฐานการโจมตี
@@ -439,7 +435,7 @@ if (file_exists('db_connect.php')) {
                                     <span class="badge bg-danger text-white badge-pill-custom mb-2">DDoS Attack</span>
                                     <h4 class="fw-bold text-warning mb-2"><i class="bi bi-robot me-2"></i>Mirai Botnet (2016)</h4>
                                     <p class="small text-light opacity-85 mb-0 lh-lg">
-                                        แฮกเกอร์แฮกกล้อง CCTV และเราเตอร์ตามบ้านที่ไม่ได้เปลี่ยนรหัสผ่านเริ่มต้น (Default Password) ยึดอุปกรณ์นับล้านเครื่องมาสร้างเป็น <strong>Botnet Army</strong> ยิง DDoS ถล่ม DNS Provider จนเว็บยักษ์ใหญ่ระดับโลกอย่าง Twitter, Netflix, Spotify ล่มทั้งทวีป!
+                                        แฮกเกอร์เจาะระบบกล้อง CCTV และเราเตอร์ตามบ้านที่ไม่ได้เปลี่ยนรหัสผ่านเริ่มต้น (Default Password) ยึดอุปกรณ์นับล้านเครื่องมาสร้างเป็น <strong>Botnet Army</strong> ยิง DDoS ถล่ม DNS Provider จนเว็บยักษ์ใหญ่ระดับโลกอย่าง Twitter, Netflix, Spotify ล่มทั้งทวีป!
                                     </p>
                                 </div>
                             </div>
@@ -472,12 +468,12 @@ if (file_exists('db_connect.php')) {
                                         <span class="position-absolute top-0 end-0 m-3 badge bg-danger badge-pill-custom">⚠️ Threat Analysis</span>
                                     </div>
                                     <div class="p-4 d-flex flex-column flex-grow-1">
-                                        <h5 class="fw-bold text-dark mb-2">ช่องโหว่และภัยคุกคามที่พบบ่อย</h5>
+                                        <h5 class="fw-bold text-dark mb-2">ภัยคุกคามทางไซเบอร์ในระบบ IoT (Cyber Threats)</h5>
                                         <p class="text-muted small mb-3">อุปกรณ์ IoT มักถูกออกแบบมาเน้นความสะดวกและราคาถูก จนข้ามมาตรฐานความปลอดภัยที่รัดกุม</p>
                                         <ul class="list-unstyled small text-secondary mb-0 mt-auto feature-list">
-                                            <li><strong>Default Passwords:</strong> ไม่เปลี่ยนรหัสผ่านเริ่มต้นจากโรงงาน (เช่น admin/admin)</li>
-                                            <li><strong>Botnet Infection:</strong> ถูกฝังซอฟต์แวร์แฝงตัวเพื่อนำไปใช้ยิง DDoS Attack</li>
-                                            <li><strong>Unencrypted Comms:</strong> ส่งข้อมูลแบบ Cleartext ดักฟังข้อมูล (Eavesdropping) ง่าย</li>
+                                            <li><strong>Default Passwords:</strong> ไม่เปลี่ยนรหัสผ่านเริ่มต้นจากโรงงาน (เช่น admin/admin) ทำให้สุ่มเจาะง่าย</li>
+                                            <li><strong>Botnet Infection:</strong> ถูกฝังมัลแวร์ควบคุมเพื่อนำไปใช้ยิง DDoS Attack ขนาดใหญ่</li>
+                                            <li><strong>Unencrypted Comms:</strong> ส่งข้อมูลแบบ Cleartext ทำให้ถูกดักฟังข้อมูล (Eavesdropping) ได้ทันที</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -488,15 +484,15 @@ if (file_exists('db_connect.php')) {
                                 <div class="security-card h-100 d-flex flex-column">
                                     <div class="overflow-hidden position-relative">
                                         <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-100" alt="Best Practices">
-                                        <span class="position-absolute top-0 end-0 m-3 badge bg-success badge-pill-custom">🔐 Best Practices</span>
+                                        <span class="position-absolute top-0 end-0 m-3 badge bg-success badge-pill-custom">🔐 Encryption & SSL/TLS</span>
                                     </div>
                                     <div class="p-4 d-flex flex-column flex-grow-1">
-                                        <h5 class="fw-bold text-dark mb-2">แนวทางการป้องกันและยกระดับระบบ</h5>
-                                        <p class="text-muted small mb-3">หลักปฏิบัติพื้นฐานเพื่อรับประกันว่าฮาร์ดแวร์และซอฟต์แวร์จะทำงานได้ปลอดภัย</p>
+                                        <h5 class="fw-bold text-dark mb-2">การเข้ารหัสและการใช้งาน SSL/TLS</h5>
+                                        <p class="text-muted small mb-3">หลักปฏิบัติพื้นฐานเพื่อรับประกันว่าฮาร์ดแวร์และซอฟต์แวร์จะรับส่งข้อมูลได้อย่างปลอดภัย</p>
                                         <ul class="list-unstyled small text-secondary mb-0 mt-auto feature-list">
-                                            <li><strong>End-to-End Encryption:</strong> เข้ารหัสรวดเร็วด้วย TLS 1.3 และฮาร์ดแวร์ AES-256</li>
-                                            <li><strong>OTA Firmware Updates:</strong> อัปเดตแพตช์ผ่านอากาศปิดช่องโหว่สม่ำเสมอ</li>
-                                            <li><strong>Strong Authentication:</strong> ใช้ Digital Certificate (X.509) ร่วมกับ MFA</li>
+                                            <li><strong>SSL/TLS Protocols:</strong> เข้ารหัสการเชื่อมต่อระหว่าง Edge Device กับ Cloud Server</li>
+                                            <li><strong>OTA Firmware Updates:</strong> อัปเดตแพตช์ซอฟต์แวร์ผ่านอากาศอย่างปลอดภัยเพื่อปิดช่องโหว่</li>
+                                            <li><strong>Strong Authentication:</strong> ใช้ Digital Certificate (X.509) ร่วมกับการยืนยันตัวตนแบบหลายปัจจัย (MFA)</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -507,15 +503,15 @@ if (file_exists('db_connect.php')) {
                                 <div class="security-card h-100 d-flex flex-column">
                                     <div class="overflow-hidden position-relative">
                                         <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-100" alt="Privacy & PDPA">
-                                        <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark badge-pill-custom">📜 Privacy & PDPA</span>
+                                        <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark badge-pill-custom">📜 กฎหมาย PDPA กับ IoT</span>
                                     </div>
                                     <div class="p-4 d-flex flex-column flex-grow-1">
-                                        <h5 class="fw-bold text-dark mb-2">ความเป็นส่วนตัวของข้อมูล (Data Privacy)</h5>
-                                        <p class="text-muted small mb-3">อุปกรณ์ IoT บันทึกพฤติกรรมผู้ใช้งานตลอดเวลา จึงต้องมีการคุ้มครองข้อมูลส่วนบุคคลตามกฎหมาย PDPA อย่างเคร่งครัด</p>
+                                        <h5 class="fw-bold text-dark mb-2">ความเป็นส่วนตัวของข้อมูลและกฎหมาย PDPA</h5>
+                                        <p class="text-muted small mb-3">อุปกรณ์ IoT บันทึกพฤติกรรมผู้ใช้งานตลอดเวลา จึงต้องมีการคุ้มครองข้อมูลส่วนบุคคลตามกฎหมายอย่างเคร่งครัด</p>
                                         <ul class="list-unstyled small text-secondary mb-0 mt-auto feature-list">
-                                            <li><strong>Consent Management:</strong> ขอความยินยอมผู้ใช้ก่อนจัดเก็บข้อมูล</li>
-                                            <li><strong>Data Anonymization:</strong> แฝงตัวตน/ลบข้อมูลชี้ตัวบุคคล</li>
-                                            <li><strong>Right to be Forgotten:</strong> ผู้ใช้สามารถร้องขอให้ลบข้อมูลได้</li>
+                                            <li><strong>Consent Management:</strong> ต้องขอความยินยอมจากผู้ใช้ก่อนจัดเก็บข้อมูลส่วนบุคคล</li>
+                                            <li><strong>Data Anonymization:</strong> แปลงข้อมูลให้อยู่ในรูปแบบที่ไม่สามารถระบุตัวตนได้</li>
+                                            <li><strong>Right to be Forgotten:</strong> ผู้ใช้มีสิทธิ์ร้องขอให้ลบหรือทำลายข้อมูลของตนเอง</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -529,12 +525,12 @@ if (file_exists('db_connect.php')) {
                                         <span class="position-absolute top-0 end-0 m-3 badge bg-info text-dark badge-pill-custom">🛡️ Zero Trust Architecture</span>
                                     </div>
                                     <div class="p-4 d-flex flex-column flex-grow-1">
-                                        <h5 class="fw-bold text-dark mb-2">สถาปัตยกรรมความปลอดภัย Zero Trust</h5>
+                                        <h5 class="fw-bold text-dark mb-2">สถาปัตยกรรม Zero Trust ในระบบ IoT</h5>
                                         <p class="text-muted small mb-3">ยึดหลัก "ไม่ไว้วางใจใคร ตรวจสอบเสมอ" (Never Trust, Always Verify) ทั้งภายในและภายนอกเครือข่าย</p>
                                         <ul class="list-unstyled small text-secondary mb-0 mt-auto feature-list">
-                                            <li><strong>Micro-segmentation:</strong> แยกเครือข่ายอุปกรณ์ IoT ออกจากเครือข่ายหลัก</li>
-                                            <li><strong>Least Privilege Access:</strong> กำหนดสิทธิ์เข้าถึงเท่าที่จำเป็น</li>
-                                            <li><strong>Continuous Monitoring:</strong> ตรวจสอบพฤติกรรมผิดปกติเรียลไทม์</li>
+                                            <li><strong>Micro-segmentation:</strong> แยกเครือข่ายอุปกรณ์ IoT ออกจากโครงสร้างเครือข่ายหลัก</li>
+                                            <li><strong>Least Privilege Access:</strong> กำหนดสิทธิ์การเข้าถึงทรัพยากรเท่าที่จำเป็นเท่านั้น</li>
+                                            <li><strong>Continuous Monitoring:</strong> ตรวจสอบพฤติกรรมผิดปกติและการเชื่อมต่อแบบเรียลไทม์</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -552,7 +548,7 @@ if (file_exists('db_connect.php')) {
                             <table class="table table-hover align-middle mb-0 text-center">
                                 <thead class="table-danger">
                                     <tr>
-                                        <th class="py-3 text-start ps-4">โปรโตคอลดั้งเดิม ⚠️</th>
+                                        <th class="py-3 text-start ps-4">โปรโตคอลดั้งเดิม ⚠️️</th>
                                         <th class="py-3">โปรโตคอลปลอดภัย 🔒</th>
                                         <th class="py-3">กลไกการเข้ารหัส</th>
                                         <th class="py-3 text-start">ระดับความคุ้มครอง 🛡️</th>
@@ -582,9 +578,42 @@ if (file_exists('db_connect.php')) {
                         </div>
                     </section>
 
+                    <!-- ✨ [NEW SECTION] IoT Security Best Practices & Checklist -->
+                    <section class="mb-5 position-relative" style="z-index: 1;">
+                        <div class="p-4 p-md-5 rounded-4 bg-white border shadow-sm">
+                            <h3 class="fw-bold text-dark mb-3 d-flex align-items-center gap-2">
+                                <span class="fs-3">🌟</span> แนวปฏิบัติที่ดีที่สุดในการรักษาความปลอดภัย IoT (Best Practices)
+                            </h3>
+                            <p class="text-muted small mb-4">
+                                แนวทางปฏิบัติสำหรับนักพัฒนาและผู้ใช้งานในการป้องกันอุปกรณ์ IoT จากความเสี่ยงรอบด้าน:
+                            </p>
+
+                            <div class="row g-4">
+                                <div class="col-md-4">
+                                    <div class="p-3 bg-light rounded-3 h-100 border">
+                                        <h6 class="fw-bold text-primary mb-2"><i class="bi bi-key-fill me-1"></i> 1. เปลี่ยนรหัสผ่านทันที</h6>
+                                        <p class="text-muted small mb-0">ห้ามใช้รหัสผ่านเริ่มต้นจากโรงงาน (Default Credentials) เด็ดขาด ควรกำหนดรหัสผ่านที่ซับซ้อนและคาดเดายาก</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 bg-light rounded-3 h-100 border">
+                                        <h6 class="fw-bold text-success mb-2"><i class="bi bi-router-fill me-1"></i> 2. แยกวงแลน (Guest/IoT Network)</h6>
+                                        <p class="text-muted small mb-0">ควรแยกเครือข่าย Wi-Fi สำหรับอุปกรณ์ IoT ออกจากเครือข่ายหลักที่ใช้เก็บข้อมูลสำคัญ เพื่อป้องกันหากอุปกรณ์ถูกเจาะ</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 bg-light rounded-3 h-100 border">
+                                        <h6 class="fw-bold text-warning-emphasis mb-2"><i class="bi bi-arrow-repeat me-1"></i> 3. อัปเดตเฟิร์มแวร์สม่ำเสมอ</h6>
+                                        <p class="text-muted small mb-0">ตรวจสอบและอัปเดต Patch ความปลอดภัยและ Firmware ของบอร์ดหรือเซนเซอร์อยู่เสมอเพื่อปิดช่องโหว่ใหม่ๆ</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                     <!-- 📝 Quiz & Action Box -->
                     <section class="mt-5 position-relative" style="z-index: 1;">
-                        <div class="card border-0 rounded-4 text-white shadow-lg overflow-hidden" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
+                        <div class="card border-0 rounded-4 text-white shadow-lg overflow-hidden" style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);">
                             <div class="card-body p-4 p-md-5 text-center">
                                 <h3 class="fw-bold mb-3">🎉 เรียนรู้บทที่ 4 ครบถ้วนแล้ว!</h3>
                                 <p class="mb-4 text-white-50 small lh-lg px-md-5">
@@ -593,7 +622,7 @@ if (file_exists('db_connect.php')) {
                                 
                                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_eCQ0kk47HTv4hTPpvLOD_etLPn9xK0pwOH4zAXgRSyK5xA/viewform?usp=publish-editor" 
                                    target="_blank" 
-                                   class="btn btn-light btn-lg rounded-pill px-5 fw-bold text-danger btn-playful pulse-btn">
+                                   class="btn btn-light btn-lg rounded-pill px-5 fw-bold text-primary btn-playful pulse-btn">
                                    📝 ทำแบบทดสอบบทที่ 4
                                 </a>
                             </div>
@@ -605,7 +634,7 @@ if (file_exists('db_connect.php')) {
                         <a href="lesson3.php" class="btn btn-outline-secondary rounded-pill px-4 btn-playful">
                             <i class="bi bi-arrow-left me-1"></i> ย้อนกลับบทที่ 3
                         </a>
-                        <a href="lesson5.php" class="btn btn-danger rounded-pill px-4 btn-playful">
+                        <a href="lesson5.php" class="btn btn-primary rounded-pill px-4 btn-playful">
                             บทเรียนถัดไป (บทที่ 5) <i class="bi bi-arrow-right ms-1"></i>
                         </a>
                     </div>
