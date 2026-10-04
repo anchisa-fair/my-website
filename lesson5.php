@@ -185,7 +185,6 @@ if (file_exists('db_connect.php')) {
             box-shadow: 0 12px 30px rgba(0,0,0,0.15);
         }
 
-        /* 🛠️ แก้ไขสไตล์ตรงนี้ให้กรอบสูงเท่ากันและจัดกลางแนวตั้ง */
         .pipeline-step {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
@@ -270,7 +269,7 @@ if (file_exists('db_connect.php')) {
     <!-- 🔵 Scroll Reading Progress Bar -->
     <div id="progress-bar"></div>
 
-    <!-- 🖼️ Top Main Banner (อยู่ด้านบน Navbar) -->
+    <!-- 🖼️ Top Main Banner -->
     <div class="top-banner-wrapper position-relative z-1 text-center">
         <a href="home.php">
             <img src="img/banner.png" alt="Internet of Things (IoT) Course & Principles" class="img-fluid w-100 header-banner-img">
@@ -286,10 +285,6 @@ if (file_exists('db_connect.php')) {
             </a>
             
             <div class="d-flex align-items-center gap-2 flex-wrap">
-                <!-- ปุ่มดาวน์โหลดใบงาน -->
-                <a href="assets/docs/worksheet_lesson5.pdf" download class="btn btn-outline-success btn-sm rounded-pill px-3 btn-playful">
-                    <i class="bi bi-file-earmark-arrow-down-fill me-1"></i> ดาวน์โหลดใบงาน
-                </a>
 
                 <a href="home.php" class="btn btn-outline-primary btn-sm rounded-pill px-3 btn-playful">
                     <i class="bi bi-grid-fill me-1"></i> หน้ารวมบทเรียน
@@ -335,7 +330,7 @@ if (file_exists('db_connect.php')) {
                             องค์ประกอบเชิงลึกของระบบ IoT ⚙️
                         </h1>
                         <p class="text-light opacity-75 fs-6 mb-0 lh-lg">
-                            เจาะลึกสถาปัตยกรรมระบบ (Architecture) กลไกฮาร์ดแวร์ การแปลงสัญญาณ ADC การประมวลผล Edge AI โปรโตคอลการสื่อสาร และการส่งการแจ้งเตือนแบบครบวงจร!
+                            เจาะลึกสถาปัตยกรรมระบบแบบ 4 ชั้น (4-Layer Architecture) กลไกฮาร์ดแวร์และการแปลงสัญญาณ ADC เทคโนโลยี Edge AI โปรโตคอลการสื่อสารระดับเครือข่าย และท่อส่งข้อมูล (Data Pipeline) แบบครบวงจร
                         </p>
                     </div>
 
@@ -348,7 +343,7 @@ if (file_exists('db_connect.php')) {
                                 </div>
                                 <div>
                                     <h5 class="fw-bold text-dark mb-0">วิดีโอการเรียนรู้บทที่ 5 🎬</h5>
-                                    <small class="text-muted">เจาะลึกโครงสร้างระบบ IoT และการเดินทางของข้อมูลตั้งแต่ Hardware ถึง Cloud</small>
+                                    <small class="text-muted">เจาะลึกโครงสร้างระบบ IoT และการเดินทางของข้อมูลตั้งแต่ฮาร์ดแวร์ถึงคลาวด์</small>
                                 </div>
                             </div>
                             <div class="ratio ratio-16x9">
@@ -364,9 +359,10 @@ if (file_exists('db_connect.php')) {
                                 <span class="fs-4">🎯</span> วัตถุประสงค์การเรียนรู้เชิงวิชาการ
                             </h5>
                             <ul class="mb-0 small lh-lg text-secondary">
-                                <li>จำแนกหลักการทำงานเชิงลึกของฮาร์ดแวร์ฝั่ง Perception Layer (ADC, Transducer, Microcontroller MCU, Actuator)</li>
-                                <li>เปรียบเทียบจุดเด่น ข้อจำกัด และโปรโตคอลการสื่อสารในแต่ละระดับชั้น (Short-range vs LPWAN, MQTT vs HTTP vs CoAP)</li>
-                                <li>เข้าใจกระบวนการ Data Pipeline ตั้งแต่การประมวลผลที่ Edge AI (เช่น ESP32-CAM) ไปจนถึง Cloud Data Warehouse และการส่ง LINE Notify API</li>
+                                <li>วิเคราะห์และจำแนกสถาปัตยกรรมระบบอินเทอร์เน็ตของสรรพสิ่ง (IoT Architecture) ออกเป็น 4 ชั้นหลักได้อย่างถูกต้อง</li>
+                                <li>เข้าใจหลักการทำงานของฮาร์ดแวร์ฝั่ง Perception Layer รวมถึงกระบวนการแปลงสัญญาณแอนาลอกเป็นดิจิทัลด้วย ADC และการควบคุมผ่าน Actuator</li>
+                                <li>เปรียบเทียบข้อดี-ข้อจำกัดของโปรโตคอลการสื่อสาร (MQTT, HTTP, CoAP) และเทคโนโลยีเครือข่ายไร้สาย (Wi-Fi, BLE, LoRaWAN, NB-IoT)</li>
+                                <li>ประยุกต์ใช้แนวคิด Edge AI ร่วมกับระบบคลาวด์และ Web Application เพื่อสร้างท่อส่งข้อมูล (Data Pipeline) และการแจ้งเตือนอัตโนมัติ</li>
                             </ul>
                         </div>
                     </section>
@@ -377,7 +373,7 @@ if (file_exists('db_connect.php')) {
                             <span class="fs-3">🏗️</span> 5.1 โครงสร้างสถาปัตยกรรมระบบ IoT (IoT Architecture)
                         </h3>
                         <p class="text-muted small lh-lg mb-4">
-                            ระบบ Internet of Things (IoT) ไม่ใช่เพียงการเชื่อมต่อบอร์ดไมโครคอนโทรลเลอร์เข้ากับอินเทอร์เน็ต แต่เป็น <strong>Distributed Heterogeneous System</strong> ที่รวบรวมเทคโนโลยีจากหลายแขนง ทั้งวิศวกรรมฮาร์ดแวร์ เครือข่าย วิทยาศาสตร์ข้อมูล และซอฟต์แวร์ การเข้าใจสถาปัตยกรรมระบบเป็นสิ่งสำคัญในการออกแบบระบบให้เสถียร (Reliability) ขยายตัวได้ (Scalability) และปลอดภัย (Security)
+                            ระบบ Internet of Things (IoT) ไม่ใช่เพียงแค่อุปกรณ์เดี่ยวๆ ที่เชื่อมต่ออินเทอร์เน็ต แต่เป็นสถาปัตยกรรมระบบแบบกระจาย (Distributed Heterogeneous System) ที่ผสมผสานสหวิทยาการ ทั้งวิศวกรรมฮาร์ดแวร์ เครือข่ายโทรคมนาคม วิทยาศาสตร์ข้อมูล และการพัฒนาซอฟต์แวร์ เพื่อให้ระบบมีความเสถียร (Reliability) สามารถขยายขนาดได้ (Scalability) และมีความปลอดภัยสูง โดยโครงสร้างมาตรฐานนิยมแบ่งออกเป็น 4 ชั้นหลัก ดังนี้:
                         </p>
 
                         <!-- 4-Layer Architectural Breakdown Cards -->
@@ -387,15 +383,15 @@ if (file_exists('db_connect.php')) {
                                     <div class="fs-2 text-primary mb-2">👁️</div>
                                     <h6 class="fw-bold text-primary mb-1">1. Perception Layer</h6>
                                     <small class="text-muted d-block mb-2">ชั้นรับรู้และรับข้อมูล</small>
-                                    <p class="text-secondary small mb-0">เซนเซอร์, ทรานส์ดิวเซอร์, ADC, และบอร์ด MCU (ESP32/Arduino) ดึงค่าจากโลกกายภาพ</p>
+                                    <p class="text-secondary small mb-0">ประกอบด้วยเซนเซอร์ ทรานส์ดิวเซอร์ วงจร ADC และบอร์ดไมโครคอนโทรลเลอร์ (เช่น ESP32) ทำหน้าที่เก็บข้อมูลทางกายภาพ</p>
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-3">
                                 <div class="arch-layer-card h-100 border-start border-success border-4">
                                     <div class="fs-2 text-success mb-2">📡</div>
                                     <h6 class="fw-bold text-success mb-1">2. Network Layer</h6>
-                                    <h6 class="text-muted d-block mb-2 small">ชั้นการสื่อสารเครือข่าย</h6>
-                                    <p class="text-secondary small mb-0">ส่งผ่านสัญญาณ Wi-Fi, BLE, LoRaWAN, 5G และ Gateway ไปยัง Broker หรือ Cloud</p>
+                                    <small class="text-muted d-block mb-2">ชั้นการสื่อสารเครือข่าย</small>
+                                    <p class="text-secondary small mb-0">ช่องทางการส่งผ่านข้อมูลไร้สาย เช่น Wi-Fi, BLE, LoRaWAN, 5G และ Network Gateway ส่งต่อไปยังระบบคลาวด์</p>
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-3">
@@ -403,7 +399,7 @@ if (file_exists('db_connect.php')) {
                                     <div class="fs-2 text-warning mb-2">⚙️</div>
                                     <h6 class="fw-bold text-warning-emphasis mb-1">3. Middleware / Processing</h6>
                                     <small class="text-muted d-block mb-2">ชั้นประมวลผลข้อมูล</small>
-                                    <p class="text-secondary small mb-0">Edge AI, Cloud Computing, Database (MySQL/Firebase) และการวิเคราะห์ข้อมูล</p>
+                                    <p class="text-secondary small mb-0">พื้นที่ประมวลผลข้อมูลทั้ง Edge AI, Cloud Computing, ระบบฐานข้อมูล (MySQL/Firebase) และการวิเคราะห์ข้อมูลเชิงลึก</p>
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-3">
@@ -411,7 +407,7 @@ if (file_exists('db_connect.php')) {
                                     <div class="fs-2 text-danger mb-2">📱</div>
                                     <h6 class="fw-bold text-danger mb-1">4. Application Layer</h6>
                                     <small class="text-muted d-block mb-2">ชั้นการประยุกต์ใช้งาน</small>
-                                    <p class="text-secondary small mb-0">Web Dashboard, Mobile App, สั่งงาน Actuators และ LINE Notification API</p>
+                                    <p class="text-secondary small mb-0">ส่วนติดต่อผู้ใช้งาน (Dashboard), แอปพลิเคชันบนมือถือ, การควบคุม Actuators และระบบแจ้งเตือนภัยผ่าน LINE API</p>
                                 </div>
                             </div>
                         </div>
@@ -436,17 +432,17 @@ if (file_exists('db_connect.php')) {
                                             <h5 class="fw-bold text-dark mb-0 mt-1">Smart Devices & Edge Hardware</h5>
                                         </div>
                                     </div>
-                                    <p class="text-muted small mb-3">อุปกรณ์อัจฉริยะที่ปฏิสัมพันธ์โดยตรงกับโลกกายภาพ ประกอบด้วย 3 องค์ประกอบสำคัญ:</p>
+                                    <p class="text-muted small mb-3">อุปกรณ์อัจฉริยะที่ทำหน้าที่เชื่อมต่อกับสภาพแวดล้อมทางกายภาพโดยตรง มีองค์ประกอบย่อยดังนี้:</p>
                                     
                                     <ul class="list-unstyled small text-secondary mb-0 flex-grow-1">
                                         <li class="mb-2">
-                                            <strong>🌡️ Transducers & Sensors:</strong> เปลี่ยนพลังงานธรรมชาติ (ความชื้น, ภาพ, แรงกด) เป็นสัญญาณไฟฟ้า เช่น เซนเซอร์ <code>DHT11/DHT22</code> แปลงความต้านทานเป็นแรงดัน แล้วใช้ <strong>ADC (Analog-to-Digital Converter)</strong> แปลงเป็นบิตดิจิทัล
+                                            <strong>🌡️ Transducers & Sensors:</strong> อุปกรณ์แปลงปริมาณทางกายภาพ (เช่น อุณหภูมิ ความชื้น แสง แรงกด) ให้เป็นสัญญาณไฟฟ้า เช่น เซนเซอร์ <code>DHT22</code> วัดค่าความชื้นและอุณหภูมิ โดยอาศัยวงจร <strong>ADC (Analog-to-Digital Converter)</strong> แปลงสัญญาณต่อเนื่องให้เป็นรหัสตัวเลขดิจิทัลที่ไมโครคอนโทรลเลอร์เข้าใจได้
                                         </li>
                                         <li class="mb-2">
-                                            <strong>⚡ Actuators:</strong> อุปกรณ์ปฏิบัติตามคำสั่ง เช่น <strong>Relay Module</strong> ใช้ไฟ TTL 3.3V/5V สวิตช์สลับไฟ AC 220V หรือ <strong>Servo Motor</strong> ควบคุมหมุนวาล์วน้ำ
+                                            <strong>⚡ Actuators:</strong> อุปกรณ์แปลงสัญญาณไฟฟ้ากลับเป็นพลังงานเชิงกลหรือความร้อน เช่น <strong>Relay Module</strong> ทำหน้าที่เป็นสวิตช์อิเล็กทรอนิกส์ควบคุมเครื่องใช้ไฟฟ้ากระแสสลับ (AC 220V) หรือ <strong>Servo Motor</strong> สำหรับขับเคลื่อนกลไก
                                         </li>
                                         <li>
-                                            <strong>💻 Microcontroller Unit (MCU):</strong> สมองกลหลัก เช่น <strong>ESP32</strong> (Dual-Core 32-bit Xtensa LX6 @ 240MHz, SRAM 520KB) พร้อม Wi-Fi/BLE ในตัว และรองรับโมดูลกล้อง <strong>ESP32-CAM</strong>
+                                            <strong>💻 Microcontroller Unit (MCU):</strong> หน่วยประมวลผลกลาง เช่น บอร์ด <strong>ESP32</strong> มีคุณสมบัติเด่นคือหน่วยประมวลผลแบบ Dual-Core, มี Wi-Fi และ Bluetooth ในตัว รองรับการประมวลผลร่วมกับโมดูลกล้อง (ESP32-CAM)
                                         </li>
                                     </ul>
                                 </div>
@@ -464,23 +460,21 @@ if (file_exists('db_connect.php')) {
                                             <h5 class="fw-bold text-dark mb-0 mt-1">Connectivity & Protocols</h5>
                                         </div>
                                     </div>
-                                    <p class="text-muted small mb-3">เครือข่ายและการสื่อสารส่งข้อมูลอย่างมีประสิทธิภาพแบ่งเป็น 2 ระดับ:</p>
+                                    <p class="text-muted small mb-3">กลไกการรับส่งข้อมูลผ่านเครือข่าย ซึ่งต้องอาศัยทั้งระดับชั้นกายภาพและโปรโตคอลการสื่อสาร:</p>
                                     
                                     <div class="bg-light p-3 rounded-3 mb-2 border">
-                                        <h6 class="fw-bold text-dark small mb-1">📶 Network Layer (Physical/Link)</h6>
+                                        <h6 class="fw-bold text-dark small mb-1">📶 Network Layer Technologies</h6>
                                         <ul class="mb-0 small text-secondary ps-3">
-                                            <li><b>Wi-Fi (802.11 b/g/n):</b> Bandwidth สูง เหมาะกับภาพ/วิดีโอ</li>
-                                            <li><b>Bluetooth LE (BLE 5.0):</b> ประหยัดพลังงานสูง ใช้กับ Wearables</li>
-                                            <li><b>LoRaWAN / NB-IoT:</b> ไกล 5-15 กม. เหมาะกับสมาร์ทฟาร์ม</li>
+                                            <li><b>Wi-Fi (802.11 b/g/n/ac):</b> ส่งข้อมูลความเร็วสูง เหมาะกับงานสตรีมมิ่งภาพและวิดีโอ</li>
+                                            <li><b>Bluetooth LE (BLE):</b> อัตราการกินไฟต่ำมาก เหมาะกับอุปกรณ์สวมใส่ (Wearables)</li>
+                                            <li><b>LoRaWAN / NB-IoT:</b> เครือข่ายระยะไกล (LPWAN) ครอบคลุมพื้นที่กว้าง เหมาะกับงานเกษตรอัจฉริยะ</li>
                                         </ul>
                                     </div>
 
                                     <div class="bg-light p-3 rounded-3 border">
-                                        <h6 class="fw-bold text-dark small mb-1">✉️ Messaging Protocols (App Layer)</h6>
+                                        <h6 class="fw-bold text-dark small mb-1">✉️ Application Messaging Protocols</h6>
                                         <ul class="mb-0 small text-secondary ps-3">
-                                            <li><b>MQTT:</b> Publish/Subscribe น้ำหนักเบามาก ปรับใช้สูง</li>
-                                            <li><b>HTTP/HTTPS REST:</b> Request/Response มาตรฐานเว็บ</li>
-                                            <li><b>CoAP:</b> ส่งข้อมูลบน UDP สำหรับอุปกรณ์จิ๋ว</li>
+                                            <li><b>MQTT:</b> โปรโตคอลแบบ Publish/Subscribe ที่มีน้ำหนักเบา เหมาะกับอุปกรณ์ทรัพยากรน้อย</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -498,14 +492,14 @@ if (file_exists('db_connect.php')) {
                                             <h5 class="fw-bold text-dark mb-0 mt-1">Data Processing: Edge & Cloud</h5>
                                         </div>
                                     </div>
-                                    <p class="text-muted small mb-3">การประมวลผลข้อมูลในระบบ IoT ยุคใหม่เป็นโมเดลแบบ <strong>Hybrid</strong>:</p>
+                                    <p class="text-muted small mb-3">การบริหารจัดการและวิเคราะห์ข้อมูลในระบบ IoT สมัยใหม่มักใช้งานร่วมกันแบบไฮบริด:</p>
                                     
                                     <ul class="list-unstyled small text-secondary mb-0 flex-grow-1">
                                         <li class="mb-3">
-                                            <strong>🧠 Edge Computing / Edge AI:</strong> ประมวลผลที่ปลายทางบนตัวอุปกรณ์ เช่น บอร์ด <strong>ESP32-CAM</strong> รันโมเดลโครงข่ายประสาทเทียม (CNN) ขนาดเล็ก สแกนใบหน้า (Face Recognition) ช่วยลดความหน่วง (Low Latency) และปกป้องความเป็นส่วนตัวตาม PDPA
+                                            <strong>🧠 Edge Computing & Edge AI:</strong> การประมวลผลข้อมูลณ จุดเกิดเหตุบนตัวอุปกรณ์ (เช่น การใช้ ESP32-CAM รันโมเดลตรวจจับใบหน้าหรือวัตถุเบื้องต้น) ช่วยลดความหน่วง (Low Latency) และเพิ่มความปลอดภัยของข้อมูลส่วนบุคคล
                                         </li>
                                         <li>
-                                            <strong>☁️ Cloud Computing & Big Data:</strong> ศูนย์กลางเก็บข้อมูลระยะยาว เช่น <strong>Firebase Realtime DB</strong>, <strong>AWS IoT Core</strong> หรือ <strong>MySQL</strong> ทำหน้าที่วิเคราะห์เชิงทำนาย (Predictive Analytics)
+                                            <strong>☁️ Cloud Computing & Big Data:</strong> ศูนย์กลางจัดเก็บและประมวลผลข้อมูลขนาดใหญ่ เช่น ระบบฐานข้อมูลคลาวด์ (Firebase Realtime Database, AWS IoT Core หรือ MySQL) เพื่อทำหน้าที่วิเคราะห์เชิงลึกและเก็บบันทึกประวัติย้อนหลัง
                                         </li>
                                     </ul>
                                 </div>
@@ -523,20 +517,165 @@ if (file_exists('db_connect.php')) {
                                             <h5 class="fw-bold text-dark mb-0 mt-1">UI & Application Integration</h5>
                                         </div>
                                     </div>
-                                    <p class="text-muted small mb-3">ส่วนแสดงผลและการเชื่อมต่อระบบภายนอกเพื่อสร้างมูลค่าใช้งานจริง:</p>
+                                    <p class="text-muted small mb-3">การนำเสนอผลลัพธ์และการเชื่อมโยงระบบเข้ากับแพลตฟอร์มภายนอกเพื่อให้เกิดประโยชน์สูงสุด:</p>
                                     
                                     <ul class="list-unstyled small text-secondary mb-0 flex-grow-1">
                                         <li class="mb-3">
-                                            <strong>📊 Web & Mobile Dashboards:</strong> พัฒนาหน้าเว็บด้วย HTML5, Bootstrap, JavaScript (Chart.js / Vue.js) หรือ PHP ดึงข้อมูลแสดงกราฟ Real-time telemetry
+                                            <strong>📊 Web & Mobile Dashboards:</strong> พัฒนาส่วนแสดงผลด้วย HTML5, Bootstrap และ JavaScript (เช่น Chart.js) เพื่อแสดงกราฟสถานะเซนเซอร์แบบเรียลไทม์
                                         </li>
                                         <li>
-                                            <strong>💬 Notification API Services:</strong> เชื่อมต่อ Webhook / REST API ไปยังแอปส่งข้อความ เช่น <strong>LINE Notification API</strong> ส่งแจ้งเตือนเหตุการณ์สำคัญ (Alarm Notification) พร้อมรูปถ่ายได้ทันที
+                                            <strong>💬 Notification API Services:</strong> การเชื่อมต่อ Webhook เข้ากับแพลตฟอร์มการสื่อสาร เช่น <strong>LINE Notify API</strong> เพื่อส่งข้อความแจ้งเตือนเหตุการณ์ฉุกเฉินหรือภาพถ่ายจากกล้องตรงสู่สมาร์ทโฟนของผู้ใช้งานทันที
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </section>
+
+                    <!-- 💻 Section 5.3: โค้ดตัวอย่างและการเชื่อมต่อระบบ IoT (Sample Code & API Integration) -->
+                    <section class="mb-5 position-relative" style="z-index: 1;">
+                        <h3 class="fw-bold text-dark mb-3 d-flex align-items-center gap-2">
+                            <span class="fs-3">💻</span> 5.3 ตัวอย่างการเขียนโปรแกรมและการเชื่อมต่อระบบ (Code & Implementation)
+                        </h3>
+                        <p class="text-muted small lh-lg mb-4">
+                            เพื่อให้เห็นภาพการทำงานจริงของ Data Pipeline ในบทที่ 5 นี้ ขอยกตัวอย่างโครงสร้างโค้ดอย่างง่ายสำหรับบอร์ด <code>ESP32</code> ที่ทำหน้าที่อ่านค่าจากเซนเซอร์ และส่งข้อมูลผ่านโปรโตคอล HTTP/MQTT ไปยังเซิร์ฟเวอร์ พร้อมจำลองการแจ้งเตือนผ่าน LINE Notify API
+                        </p>
+
+                        <!-- Code Tabs / Cards -->
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <div class="card border-0 shadow-sm rounded-4 h-100">
+                                    <div class="card-header bg-dark text-white py-3 px-4 d-flex justify-content-between align-items-center rounded-top-4">
+                                        <span class="small font-monospace"><i class="bi bi-file-earmark-code text-warning me-2"></i>esp32_sensor_sender.ino</span>
+                                        <span class="badge bg-primary">ESP32 Firmware</span>
+                                    </div>
+                                    <div class="card-body bg-light rounded-bottom-4 p-3">
+                                        <pre class="small text-dark mb-0" style="overflow-x: auto;"><code class="bg-transparent text-dark p-0">#include &lt;WiFi.h&gt;
+#include &lt;HTTPClient.h&gt;
+
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
+const char* serverUrl = "https://yourdomain.com/api/save_sensor.php";
+
+void setup() {
+  Serial.begin(115200);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.print(".");
+  }
+  Serial.println("\nWiFi Connected!");
+}
+
+void loop() {
+  // จำลองการอ่านค่าจาก Sensor (Perception Layer)
+  float temperature = random(20, 40) + 0.5;
+  
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    http.begin(serverUrl);
+    http.addHeader("Content-Type", "application/x-www-form-urlencoded");
+    
+    String httpRequestData = "temp=" + String(temperature);
+    int httpResponseCode = http.POST(httpRequestData);
+    
+    if (httpResponseCode > 0) {
+      Serial.println("Data sent successfully: " + String(httpResponseCode));
+    } else {
+      Serial.println("Error on sending: " + String(httpResponseCode));
+    }
+    http.end();
+  }
+  delay(10000); // ส่งข้อมูลทุกๆ 10 วินาที
+}</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="card border-0 shadow-sm rounded-4 h-100">
+                                    <div class="card-header bg-dark text-white py-3 px-4 d-flex justify-content-between align-items-center rounded-top-4">
+                                        <span class="small font-monospace"><i class="bi bi-file-earmark-code text-success me-2"></i>save_sensor.php</span>
+                                        <span class="badge bg-success">Backend Server</span>
+                                    </div>
+                                    <div class="card-body bg-light rounded-bottom-4 p-3">
+                                        <pre class="small text-dark mb-0" style="overflow-x: auto;"><code class="bg-transparent text-dark p-0">&lt;?php
+// รับค่าอุณหภูมิที่ส่งมาจาก ESP32 ผ่าน POST Method
+if (isset($_POST['temp'])) {
+    $temperature = htmlspecialchars($_POST['temp']);
+    
+    // เชื่อมต่อฐานข้อมูล (Database Layer)
+    include 'db_connect.php';
+    
+    $sql = "INSERT INTO sensor_logs (temperature, recorded_at) VALUES ('$temperature', NOW())";
+    if ($conn->query($sql) === TRUE) {
+        // เงื่อนไขแจ้งเตือนฉุกเฉินผ่าน LINE Notify API
+        if ($temperature > 35.0) {
+            sendLineNotify("⚠️ แจ้งเตือน! อุณหภูมิสูงเกินกำหนด: " . $temperature . " °C");
+        }
+        echo "Record inserted successfully";
+    } else {
+        echo "Error: " . $sql . "&lt;br&gt;" . $conn->error;
+    }
+}
+
+function sendLineNotify($message) {
+    $token = "YOUR_LINE_NOTIFY_TOKEN";
+    $queryData = array('message' => $message);
+    $queryData = http_build_query($queryData);
+    
+    $headerOptions = array(
+        'http' => array(
+            'method' => 'POST',
+            'header' => "Authorization: Bearer " . $token . "\r\n" .
+                        "Content-Type: application/x-www-form-urlencoded\r\n",
+            'content' => $queryData
+        )
+    );
+    $context = stream_context_create($headerOptions);
+    @file_get_contents("https://notify-api.line.me/api/notify", false, $context);
+}
+?&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 🛡️ Section 5.4: ความปลอดภัยและความท้าทายในระบบ IoT -->
+                    <section class="mb-5 position-relative" style="z-index: 1;">
+                        <h3 class="fw-bold text-dark mb-3 d-flex align-items-center gap-2">
+                            <span class="fs-3">🛡️</span> 5.4 ความปลอดภัยและความท้าทายในระบบ IoT (IoT Security & Challenges)
+                        </h3>
+                        <p class="text-muted small lh-lg mb-4">
+                            เนื่องจากระบบ IoT มีการเชื่อมโยงข้อมูลจากโลกกายภาพสู่อินเทอร์เน็ต ความปลอดภัยจึงเป็นหัวใจสำคัญที่นักพัฒนาต้องคำนึงถึง เพื่อป้องกันการโจมตีทางไซเบอร์และความเสียหายที่อาจเกิดขึ้น:
+                        </p>
+
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="p-4 rounded-4 bg-white border shadow-sm h-100">
+                                    <div class="fs-3 text-danger mb-2">🔒</div>
+                                    <h6 class="fw-bold text-dark mb-1">1. Device Authentication</h6>
+                                    <p class="text-secondary small mb-0">อุปกรณ์ทุกตัวที่เชื่อมต่อเข้าสู่ระบบเครือข่ายต้องผ่านการยืนยันตัวตนอย่างแน่นหนา (เช่น ใช้ Token หรือ TLS/SSL Certificate) เพื่อป้องกันอุปกรณ์ปลอมแปลงเข้ามาส่งข้อมูลขยะ</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-4 rounded-4 bg-white border shadow-sm h-100">
+                                    <div class="fs-3 text-warning mb-2">📦</div>
+                                    <h6 class="fw-bold text-dark mb-1">2. Data Encryption</h6>
+                                    <p class="text-secondary small mb-0">ข้อมูลที่รับส่งระหว่างบอร์ดไมโครคอนโทรลเลอร์กับเซิร์ฟเวอร์คลาวด์ควรได้รับการเข้ารหัส (เช่น ผ่านโปรโตคอล HTTPS หรือ MQTTS) เพื่อป้องกันการดักฟังข้อมูลกลางทาง (Man-in-the-Middle Attack)</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-4 rounded-4 bg-white border shadow-sm h-100">
+                                    <div class="fs-3 text-success mb-2">⚡</div>
+                                    <h6 class="fw-bold text-dark mb-1">3. Power & Resource Limits</h6>
+                                    <p class="text-secondary small mb-0">ข้อจำกัดด้านพลังงานและหน่วยความจำของฮาร์ดแวร์ริมขอบ (Edge Hardware) ทำให้การออกแบบระบบความปลอดภัยต้องมีน้ำหนักเบาและไม่กินทรัพยากรสูงจนเกินไป</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
 
                     <!-- ⚡ Data Flow Pipeline Interactive Box -->
                     <section class="mb-5 position-relative" style="z-index: 1;">
@@ -545,7 +684,7 @@ if (file_exists('db_connect.php')) {
                                 <span class="fs-2">⚡</span>
                                 <div>
                                     <h4 class="fw-bold text-warning mb-0">กระบวนการไหลของข้อมูล (IoT Data Flow Pipeline)</h4>
-                                    <small class="text-white-50">แสดงลำดับขั้นตอนการส่งข้อมูลจากฮาร์ดแวร์กายภาพสู่หน้าจอผู้ใช้</small>
+                                    <small class="text-white-50">แสดงลำดับขั้นตอนการเดินทางของข้อมูลตั้งแต่จุดกำเนิดทางกายภาพจนถึงหน้าจอผู้ใช้</small>
                                 </div>
                             </div>
 
@@ -554,42 +693,42 @@ if (file_exists('db_connect.php')) {
                                     <div class="pipeline-step">
                                         <div class="fs-4 text-cyan mb-1" style="color: var(--accent-cyan);">🌡️ 1. Sensing</div>
                                         <div class="fw-bold">Sensor (Analog)</div>
-                                        <small class="text-white-50 fs-xs">วัดอุณหภูมิ/แสง/แรงดัน</small>
+                                        <small class="text-white-50 fs-xs">วัดค่าทางกายภาพ</small>
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-3">
                                     <div class="pipeline-step">
                                         <div class="fs-4 text-warning mb-1">💻 2. Digitalization</div>
                                         <div class="fw-bold">ADC / MCU</div>
-                                        <small class="text-white-50 fs-xs">แปลงเป็นสัญญาณบิตดิจิทัล</small>
+                                        <small class="text-white-50 fs-xs">แปลงเป็นสัญญาณดิจิทัล</small>
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-3">
                                     <div class="pipeline-step">
                                         <div class="fs-4 text-purple mb-1" style="color: var(--accent-purple);">🧠 3. Edge AI</div>
                                         <div class="fw-bold">Edge Processing</div>
-                                        <small class="text-white-50 fs-xs">คัดกรอง/ตรวจจับใบหน้า</small>
+                                        <small class="text-white-50 fs-xs">คัดกรองข้อมูลเบื้องต้น</small>
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-3">
                                     <div class="pipeline-step">
                                         <div class="fs-4 text-success mb-1">📡 4. Transport</div>
                                         <div class="fw-bold">MQTT / HTTP</div>
-                                        <small class="text-white-50 fs-xs">ส่งผ่าน Wi-Fi / Gateway</small>
+                                        <small class="text-white-50 fs-xs">ส่งผ่านเครือข่ายอินเทอร์เน็ต</small>
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-4">
                                     <div class="pipeline-step">
                                         <div class="fs-4 text-info mb-1">☁️ 5. Cloud Storage</div>
                                         <div class="fw-bold">Database Server</div>
-                                        <small class="text-white-50 fs-xs">บันทึกลง MySQL / Firebase</small>
+                                        <small class="text-white-50 fs-xs">จัดเก็บบน MySQL/Firebase</small>
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-4">
                                     <div class="pipeline-step">
                                         <div class="fs-4 text-pink mb-1" style="color: var(--accent-pink);">💬 6. API Trigger</div>
                                         <div class="fw-bold">LINE Notify API</div>
-                                        <small class="text-white-50 fs-xs">ส่งแจ้งเตือนด่วนเข้ามือถือ</small>
+                                        <small class="text-white-50 fs-xs">ส่งแจ้งเตือนเข้ามือถือ</small>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4">
@@ -660,7 +799,7 @@ if (file_exists('db_connect.php')) {
                             <div class="card-body p-4 p-md-5 text-center">
                                 <h3 class="fw-bold mb-3">🎉 เรียนรู้บทที่ 5 ครบถ้วนแล้ว!</h3>
                                 <p class="mb-4 text-white-50 small lh-lg px-md-5">
-                                    พร้อมทดสอบความรู้ความเข้าใจเกี่ยวกับองค์ประกอบเชิงลึกของ IoT หรือยัง? คลิกทำแบบทดสอบกันเลย!
+                                    พร้อมทดสอบความรู้ความเข้าใจเกี่ยวกับองค์ประกอบเชิงลึกและสถาปัตยกรรมระบบ IoT หรือยัง? คลิกทำแบบทดสอบกันเลย!
                                 </p>
                                 
                                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_eCQ0kk47HTv4hTPpvLOD_etLPn9xK0pwOH4zAXgRSyK5xA/viewform?usp=publish-editor" 
@@ -692,7 +831,7 @@ if (file_exists('db_connect.php')) {
         <i class="bi bi-arrow-up fs-5"></i>
     </button>
 
-    <!-- 🦶 ดึง Footer Component จากไฟล์ footer.php -->
+    <!-- 🦶 Footer Component -->
     <?php 
     if (file_exists('footer.php')) {
         include 'footer.php'; 
