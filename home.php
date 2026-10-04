@@ -20,7 +20,6 @@ if (!isset($_SESSION['username'])) {
     <style>
         body { 
             font-family: 'Kanit', sans-serif; 
-            /* พื้นหลังสีสว่างพร้อม Overlay จางๆ ซ้อนบนภาพเทคโนโลยี */
             background: linear-gradient(rgba(245, 247, 250, 0.92), rgba(245, 247, 250, 0.95)), 
                         url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920') no-repeat center center fixed;
             background-size: cover;
@@ -30,7 +29,6 @@ if (!isset($_SESSION['username'])) {
             flex-direction: column;
         }
 
-        /* Navbar โทนขาวสว่าง */
         .navbar-custom {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -38,7 +36,6 @@ if (!isset($_SESSION['username'])) {
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
         }
 
-        /* ภาพ Banner */
         .banner-image {
             width: 100%;
             border-radius: 16px;
@@ -47,7 +44,6 @@ if (!isset($_SESSION['username'])) {
             border: 1px solid #e2e8f0;
         }
 
-        /* Card บทเรียน โทนขาวมินิมอล */
         .lesson-card { 
             background: #ffffff;
             color: #2b2d42;
@@ -59,7 +55,6 @@ if (!isset($_SESSION['username'])) {
             position: relative;
         }
         
-        /* เส้นเน้นสีด้านบน Card */
         .lesson-card::before {
             content: '';
             position: absolute;
@@ -87,7 +82,6 @@ if (!isset($_SESSION['username'])) {
             line-height: 1;
         }
 
-        /* Footer */
         footer {
             flex-shrink: 0;
             background-color: rgba(15, 23, 42, 0.95);
@@ -161,7 +155,7 @@ if (!isset($_SESSION['username'])) {
                             <i class="bi bi-journal-text me-2"></i>ความรู้เบื้องต้นเกี่ยวกับ IoT
                         </h5>
                         <p class="card-text text-muted mt-2 flex-grow-1">เรียนรู้ความหมาย องค์ประกอบ และการทำงานพื้นฐานของระบบ</p>
-                        <a href="lesson1.php" target="_blank" class="btn btn-primary rounded-pill mt-3 w-100 fw-medium">เข้าสู่บทเรียน</a>
+                        <a href="lesson1.php" target="_blank" onclick="completeLesson(1)" class="btn btn-primary rounded-pill mt-3 w-100 fw-medium">เข้าสู่บทเรียน</a>
                     </div>
                 </div>
             </div>
@@ -175,12 +169,12 @@ if (!isset($_SESSION['username'])) {
                             <i class="bi bi-motherboard me-2"></i>อุปกรณ์และฮาร์ดแวร์
                         </h5>
                         <p class="card-text text-muted mt-2 flex-grow-1">รู้จักไมโครคอนโทรลเลอร์ เซ็นเซอร์ต่างๆ เช่น บอร์ด ESP32</p>
-                        <a href="lesson2.php" target="_blank" class="btn btn-primary rounded-pill mt-3 w-100 fw-medium">เข้าสู่บทเรียน</a>
+                        <a href="lesson2.php" target="_blank" onclick="completeLesson(2)" class="btn btn-primary rounded-pill mt-3 w-100 fw-medium">เข้าสู่บทเรียน</a>
                     </div>
                 </div>
             </div>
 
-            <!-- บทที่ 3 (แก้ไขชื่อบทเรียนและคำอธิบาย) -->
+            <!-- บทที่ 3 -->
             <div class="col">
                 <div class="card h-100 lesson-card">
                     <div class="card-body p-4 d-flex flex-column">
@@ -189,12 +183,12 @@ if (!isset($_SESSION['username'])) {
                             <i class="bi bi-grid-3x3-gap-fill me-2"></i>การประยุกต์ใช้งาน IoT
                         </h5>
                         <p class="card-text text-muted mt-2 flex-grow-1">ศึกษากรณีศึกษาการใช้งาน IoT ในโดเมนต่างๆ เช่น Smart Home, Smart Farming, IIoT และ Healthcare</p>
-                        <a href="lesson3.php" target="_blank" class="btn btn-primary rounded-pill mt-3 w-100 fw-medium">เข้าสู่บทเรียน</a>
+                        <a href="lesson3.php" target="_blank" onclick="completeLesson(3)" class="btn btn-primary rounded-pill mt-3 w-100 fw-medium">เข้าสู่บทเรียน</a>
                     </div>
                 </div>
             </div>
 
-            <!-- บทที่ 4 (แก้ไขชื่อบทเรียนและคำอธิบาย) -->
+            <!-- บทที่ 4 -->
             <div class="col">
                 <div class="card h-100 lesson-card">
                     <div class="card-body p-4 d-flex flex-column">
@@ -203,12 +197,12 @@ if (!isset($_SESSION['username'])) {
                             <i class="bi bi-shield-lock me-2"></i>ความมั่นคงปลอดภัยและการปกป้องข้อมูล
                         </h5>
                         <p class="card-text text-muted mt-2 flex-grow-1">เรียนรู้ภัยคุกคามไซเบอร์ สามเหลี่ยม CIA, Zero Trust Architecture และการคุ้มครองข้อมูลส่วนบุคคล (PDPA)</p>
-                        <a href="lesson4.php" target="_blank" class="btn btn-primary rounded-pill mt-3 w-100 fw-medium">เข้าสู่บทเรียน</a>
+                        <a href="lesson4.php" target="_blank" onclick="completeLesson(4)" class="btn btn-primary rounded-pill mt-3 w-100 fw-medium">เข้าสู่บทเรียน</a>
                     </div>
                 </div>
             </div>
 
-            <!-- บทที่ 5 (แก้ไขชื่อบทเรียนและคำอธิบาย) -->
+            <!-- บทที่ 5 -->
             <div class="col">
                 <div class="card h-100 lesson-card">
                     <div class="card-body p-4 d-flex flex-column">
@@ -217,7 +211,26 @@ if (!isset($_SESSION['username'])) {
                             <i class="bi bi-cpu me-2"></i>องค์ประกอบเชิงลึกของระบบ IoT
                         </h5>
                         <p class="card-text text-muted mt-2 flex-grow-1">เจาะลึกสถาปัตยกรรมระบบ (Architecture), การแปลงสัญญาณ ADC, Edge AI และ Data Pipeline</p>
-                        <a href="lesson5.php" target="_blank" class="btn btn-primary rounded-pill mt-3 w-100 fw-medium">เข้าสู่บทเรียน</a>
+                        <a href="lesson5.php" target="_blank" onclick="completeLesson(5)" class="btn btn-primary rounded-pill mt-3 w-100 fw-medium">เข้าสู่บทเรียน</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- แบบทดสอบรวม (ถูกล็อกไว้จนกว่าจะเรียนครบ บทที่ 1-5) -->
+            <div class="col">
+                <div class="card h-100 lesson-card" id="quiz-card">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <div class="lesson-number text-danger" id="quiz-icon-lock"><i class="bi bi-lock-fill"></i></div>
+                        <h5 class="card-title fw-bold text-secondary mt-2" id="quiz-title">
+                            <i class="bi bi-file-earmark-text me-2"></i>แบบทดสอบประมวลความรู้
+                        </h5>
+                        <p class="card-text text-muted mt-2 flex-grow-1" id="quiz-desc">
+                            กรุณาเรียนให้ครบทุกบทเรียน (บทที่ 1 - 5) จึงจะสามารถปลดล็อกทำแบบทดสอบได้
+                        </p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSepgiw4070OF1wcjmV6pgZronfKSdFwhL4PlCLr6J8BRt57FQ/viewform" 
+                           id="quiz-btn" target="_blank" class="btn btn-secondary rounded-pill mt-3 w-100 fw-medium disabled" aria-disabled="true">
+                            🔒 ยังไม่ปลดล็อก
+                        </a>
                     </div>
                 </div>
             </div>
@@ -272,6 +285,114 @@ if (!isset($_SESSION['username'])) {
             </div>
         </div>
     </footer>
+
+    <!-- Script สำหรับจัดการสถานะการเรียนและปลดล็อกแบบทดสอบ -->
+    <script>
+        function checkLessonStatus() {
+            let completedCount = 0;
+            for (let i = 1; i <= 5; i++) {
+                if (localStorage.getItem('lesson_' + i + '_visited') === 'true') {
+                    completedCount++;
+                }
+            }
+
+            const quizBtn = document.getElementById('quiz-btn');
+            const quizTitle = document.getElementById('quiz-title');
+            const quizDesc = document.getElementById('quiz-desc');
+            const quizCard = document.getElementById('quiz-card');
+            const quizIconLock = document.getElementById('quiz-icon-lock');
+
+            if (completedCount >= 5) {
+                // ปลดล็อกเมื่อเรียนครบทุก 5 บท
+                quizBtn.classList.remove('btn-secondary', 'disabled');
+                quizBtn.classList.add('btn-success', 'shadow');
+                quizBtn.innerHTML = '📝 เริ่มทำแบบทดสอบ (ปลดล็อกแล้ว)';
+                quizBtn.removeAttribute('aria-disabled');
+                
+                quizTitle.classList.remove('text-secondary');
+                quizTitle.classList.add('text-success');
+                quizDesc.innerHTML = 'คุณเรียนครบทั้ง 5 บทเรียบร้อยแล้ว สามารถคลิกเพื่อทำแบบทดสอบได้เลย';
+                quizIconLock.innerHTML = '<i class="bi bi-unlock-fill text-success"></i>';
+                quizIconLock.style.opacity = '0.3';
+            } else {
+                // ยังเรียนไม่ครบ
+                quizBtn.classList.add('btn-secondary', 'disabled');
+                quizBtn.classList.remove('btn-success', 'shadow');
+                quizBtn.innerHTML = `🔒 ยังไม่ปลดล็อก (เรียนแล้ว ${completedCount}/5 บท)`;
+                quizBtn.setAttribute('aria-disabled', 'true');
+            }
+        }
+
+        function completeLesson(lessonNum) {
+            localStorage.setItem('lesson_' + lessonNum + '_visited', 'true');
+            // อัปเดตหน้าจอทันทีหลังจากคลิก
+            setTimeout(checkLessonStatus, 500);
+        }
+
+        // ตรวจสอบสถานะทันทีเมื่อโหลดหน้าเว็บ
+        window.onload = function() {
+            checkLessonStatus();
+        };
+    </script>
+        <!-- Script สำหรับจัดการสถานะการเรียนและปลดล็อกแบบทดสอบ (แยกตามรายชื่อผู้ใช้) -->
+    <script>
+        // ดึงชื่อ User ปัจจุบันมาจาก PHP
+        const currentUsername = "<?php echo $_SESSION['username']; ?>";
+
+        function checkLessonStatus() {
+            let completedCount = 0;
+            for (let i = 1; i <= 5; i++) {
+                // ผูกชื่อ User เข้ากับ Key ของ localStorage เพื่อแยกข้อมูลแต่ละคน
+                if (localStorage.getItem(currentUsername + '_lesson_' + i + '_visited') === 'true') {
+                    completedCount++;
+                }
+            }
+
+            const quizBtn = document.getElementById('quiz-btn');
+            const quizTitle = document.getElementById('quiz-title');
+            const quizDesc = document.getElementById('quiz-desc');
+            const quizCard = document.getElementById('quiz-card');
+            const quizIconLock = document.getElementById('quiz-icon-lock');
+
+            if (completedCount >= 5) {
+                // ปลดล็อกเมื่อเรียนครบทุก 5 บท
+                quizBtn.classList.remove('btn-secondary', 'disabled');
+                quizBtn.classList.add('btn-success', 'shadow');
+                quizBtn.innerHTML = '📝 เริ่มทำแบบทดสอบ (ปลดล็อกแล้ว)';
+                quizBtn.removeAttribute('aria-disabled');
+                
+                quizTitle.classList.remove('text-secondary');
+                quizTitle.classList.add('text-success');
+                quizDesc.innerHTML = 'คุณเรียนครบทั้ง 5 บทเรียบร้อยแล้ว สามารถคลิกเพื่อทำแบบทดสอบได้เลย';
+                quizIconLock.innerHTML = '<i class="bi bi-unlock-fill text-success"></i>';
+                quizIconLock.style.opacity = '0.3';
+            } else {
+                // ยังเรียนไม่ครบ
+                quizBtn.classList.add('btn-secondary', 'disabled');
+                quizBtn.classList.remove('btn-success', 'shadow');
+                quizBtn.innerHTML = `🔒 ยังไม่ปลดล็อก (เรียนแล้ว ${completedCount}/5 บท)`;
+                quizBtn.setAttribute('aria-disabled', 'true');
+                
+                quizTitle.classList.remove('text-success');
+                quizTitle.classList.add('text-secondary');
+                quizDesc.innerHTML = 'กรุณาเรียนให้ครบทุกบทเรียน (บทที่ 1 - 5) จึงจะสามารถปลดล็อกทำแบบทดสอบได้';
+                quizIconLock.innerHTML = '<i class="bi bi-lock-fill"></i>';
+                quizIconLock.style.opacity = '1';
+            }
+        }
+
+        function completeLesson(lessonNum) {
+            // บันทึกสถานะแยกตามชื่อ User
+            localStorage.setItem(currentUsername + '_lesson_' + lessonNum + '_visited', 'true');
+            // อัปเดตหน้าจอทันทีหลังจากคลิก
+            setTimeout(checkLessonStatus, 500);
+        }
+
+        // ตรวจสอบสถานะทันทีเมื่อโหลดหน้าเว็บ
+        window.onload = function() {
+            checkLessonStatus();
+        };
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
