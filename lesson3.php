@@ -13,7 +13,7 @@ if (file_exists('db_connect.php')) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>บทที่ 3 - การประยุกต์ใช้งาน IoT 🌟 | IoT Learning Hub</title>
+    <title>บทที่ 3 - ฮาร์ดแวร์ ไมโครคอนโทรลเลอร์ เซ็นเซอร์เชิงลึก และการประยุกต์ใช้งาน IoT 🌟 | IoT Learning Hub</title>
     
     <!-- Bootstrap 5 & Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +37,6 @@ if (file_exists('db_connect.php')) {
             --bg-light: #f8fafc;
         }
 
-        /* 🌐 Enhanced Background with Ambient Glow & Tech Grid */
         body { 
             font-family: 'Mitr', 'Kanit', sans-serif; 
             background: 
@@ -55,7 +54,6 @@ if (file_exists('db_connect.php')) {
             overflow-x: hidden;
         }
 
-        /* Tech Grid Overlay on Body */
         body::before {
             content: "";
             position: fixed;
@@ -70,7 +68,6 @@ if (file_exists('db_connect.php')) {
             opacity: 0.7;
         }
 
-        /* 🖼️ Top Main Banner Style */
         .top-banner-wrapper {
             background-color: #0b1329;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
@@ -81,7 +78,6 @@ if (file_exists('db_connect.php')) {
             object-position: center;
         }
 
-        /* 🟢 Outer Floating Ambient Light Orbs */
         .bg-shape {
             position: fixed;
             border-radius: 50%;
@@ -91,23 +87,9 @@ if (file_exists('db_connect.php')) {
             pointer-events: none;
             animation: floatBg 12s ease-in-out infinite alternate;
         }
-        .bg-shape-1 {
-            width: 420px; height: 420px;
-            background: #3b82f6;
-            top: -100px; left: -100px;
-        }
-        .bg-shape-2 {
-            width: 460px; height: 460px;
-            background: #8b5cf6;
-            top: 35%; right: -120px;
-            animation-delay: -4s;
-        }
-        .bg-shape-3 {
-            width: 400px; height: 400px;
-            background: #06b6d4;
-            bottom: -100px; left: -80px;
-            animation-delay: -8s;
-        }
+        .bg-shape-1 { width: 420px; height: 420px; background: #3b82f6; top: -100px; left: -100px; }
+        .bg-shape-2 { width: 460px; height: 460px; background: #8b5cf6; top: 35%; right: -120px; animation-delay: -4s; }
+        .bg-shape-3 { width: 400px; height: 400px; background: #06b6d4; bottom: -100px; left: -80px; animation-delay: -8s; }
 
         @keyframes floatBg {
             0% { transform: translate(0, 0) scale(1); }
@@ -115,20 +97,15 @@ if (file_exists('db_connect.php')) {
             100% { transform: translate(-25px, 35px) scale(0.95); }
         }
 
-        /* 🟢 Scroll Reading Progress Bar */
         #progress-bar {
             position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
+            top: 0; left: 0; height: 4px;
             background: linear-gradient(90deg, #2563eb, #06b6d4, #8b5cf6, #ec4899);
-            width: 0%;
-            z-index: 9999;
+            width: 0%; z-index: 9999;
             transition: width 0.1s ease-out;
             box-shadow: 0 0 12px rgba(37, 99, 235, 0.6);
         }
 
-        /* Navbar Style */
         .navbar-custom {
             background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(16px);
@@ -137,7 +114,6 @@ if (file_exists('db_connect.php')) {
             z-index: 1000;
         }
 
-        /* Card Master Glassmorphism */
         .main-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
@@ -149,7 +125,6 @@ if (file_exists('db_connect.php')) {
             z-index: 1;
         }
 
-        /* Cyber Banner Box */
         .cyber-header-box {
             background: var(--cyber-gradient);
             border-radius: 24px;
@@ -160,15 +135,6 @@ if (file_exists('db_connect.php')) {
             box-shadow: 0 12px 30px rgba(15, 23, 42, 0.22);
         }
 
-        .cyber-header-box::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.3) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        /* Interactive Domain Cards */
         .domain-card {
             border: 1px solid #e2e8f0;
             border-radius: 24px;
@@ -182,45 +148,30 @@ if (file_exists('db_connect.php')) {
             box-shadow: 0 20px 35px rgba(37, 99, 235, 0.12);
             border-color: #93c5fd;
         }
-
         .domain-card img {
             height: 190px;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        .domain-card:hover img {
-            transform: scale(1.06);
+        .domain-card:hover img { transform: scale(1.06); }
+
+        .badge-pill-custom { padding: 8px 16px; border-radius: 30px; font-size: 0.85rem; }
+        .feature-list li { position: relative; padding-left: 24px; margin-bottom: 8px; }
+        .feature-list li::before { content: "⚡"; position: absolute; left: 0; top: 0; }
+        
+        .code-box {
+            background-color: #1e1e2e;
+            color: #a6adc8;
+            border-radius: 14px;
+            font-family: monospace;
+            padding: 1.2rem;
+            line-height: 1.5;
+            overflow-x: auto;
+            font-size: 0.88rem;
         }
 
-        /* Badges & Pills */
-        .badge-pill-custom {
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            letter-spacing: 0.3px;
-        }
+        .table-custom-wrapper { border-radius: 20px; overflow: hidden; border: 1px solid #e2e8f0; }
 
-        /* Feature List Style */
-        .feature-list li {
-            position: relative;
-            padding-left: 24px;
-            margin-bottom: 8px;
-        }
-        .feature-list li::before {
-            content: "✨";
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        /* Table Custom Styling */
-        .table-custom-wrapper {
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid #e2e8f0;
-        }
-
-        /* Buttons Style */
         .btn-playful {
             border-radius: 50px;
             font-weight: 500;
@@ -232,56 +183,37 @@ if (file_exists('db_connect.php')) {
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
-        /* Pulse Animation Button */
-        .pulse-btn {
-            animation: pulseGlow 2s infinite;
-        }
+        .pulse-btn { animation: pulseGlow 2s infinite; }
         @keyframes pulseGlow {
             0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.6); }
             70% { box-shadow: 0 0 0 16px rgba(37, 99, 235, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
         }
 
-        /* Back To Top Button */
         #btn-back-to-top {
-            position: fixed;
-            bottom: 35px;
-            right: 35px;
-            display: none;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: #2563eb;
-            color: #fff;
-            border: none;
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
-            z-index: 99;
+            position: fixed; bottom: 35px; right: 35px; display: none;
+            width: 48px; height: 48px; border-radius: 50%;
+            background: #2563eb; color: #fff; border: none;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3); z-index: 99;
             transition: all 0.3s ease;
         }
-        #btn-back-to-top:hover {
-            transform: scale(1.15) translateY(-3px);
-            background: #1d4ed8;
-        }
+        #btn-back-to-top:hover { transform: scale(1.15) translateY(-3px); background: #1d4ed8; }
     </style>
 </head>
 <body>
 
-    <!-- 🟢 Outer Screen Glowing Orbs -->
     <div class="bg-shape bg-shape-1"></div>
     <div class="bg-shape bg-shape-2"></div>
     <div class="bg-shape bg-shape-3"></div>
 
-    <!-- 🟢 Reading Progress Bar -->
     <div id="progress-bar"></div>
 
-    <!-- 🖼️ Top Main Banner (อยู่ด้านบน Navbar) -->
     <div class="top-banner-wrapper position-relative z-1 text-center">
         <a href="home.php">
-            <img src="img/banner.png" alt="Internet of Things (IoT) Course & Principles" class="img-fluid w-100 header-banner-img">
+            <img src="img/banner.png" alt="Internet of Things Course" class="img-fluid w-100 header-banner-img">
         </a>
     </div>
 
-    <!-- 🌐 Top Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold text-primary d-flex align-items-center gap-2" href="home.php">
@@ -290,53 +222,39 @@ if (file_exists('db_connect.php')) {
             </a>
             
             <div class="d-flex align-items-center gap-2 flex-wrap">
-                <!-- ปุ่มดาวน์โหลดใบงาน -->
-                <a href="assets/docs/worksheet_lesson3.pdf" download class="btn btn-outline-success btn-sm rounded-pill px-3 btn-playful">
-                    <i class="bi bi-file-earmark-arrow-down-fill me-1"></i> ดาวน์โหลดใบงาน
-                </a>
-
                 <a href="home.php" class="btn btn-outline-primary btn-sm rounded-pill px-3 btn-playful">
                     <i class="bi bi-grid-fill me-1"></i> หน้ารวมบทเรียน
                 </a>
-                
                 <span class="badge bg-light text-dark border px-3 py-2 rounded-pill d-none d-md-inline-block">
-                    👋 สวัสดี, <strong><?php echo htmlspecialchars($_SESSION['username'] ?? 'นักเรียน'); ?></strong>
+                    👋 สวัสดี, <strong><?php echo htmlspecialchars($_SESSION['username'] ?? 'นักศึกษา'); ?></strong>
                 </span>
             </div>
         </div>
     </nav>
 
-    <!-- 📦 Main Content Container -->
     <div class="container mt-4 mb-5 flex-grow-1 position-relative">
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 
-                <!-- Breadcrumb -->
                 <nav aria-label="breadcrumb" class="mb-3">
                     <ol class="breadcrumb bg-transparent p-0 small">
                         <li class="breadcrumb-item"><a href="home.php" class="text-decoration-none text-primary"><i class="bi bi-house-door-fill me-1"></i>หน้าหลัก</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">บทที่ 3: การประยุกต์ใช้งาน IoT</li>
+                        <li class="breadcrumb-item active" aria-current="page">บทที่ 3: ฮาร์ดแวร์ ไมโครคอนโทรลเลอร์ เซ็นเซอร์เชิงลึก และการประยุกต์ใช้งาน</li>
                     </ol>
                 </nav>
 
-                <!-- Main Glassmorphism Card -->
                 <div class="main-card p-4 p-md-5 position-relative">
 
-                    <!-- Header Cyber Banner Section -->
                     <div class="cyber-header-box mb-4 position-relative" style="z-index: 1;">
                         <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                            <span class="badge bg-primary text-white badge-pill-custom">
-                                📖 บทเรียนที่ 3
-                            </span>
-                            <span class="badge text-white badge-pill-custom" style="background-color: var(--accent-purple);">
-                                🚀 Applications & Real-World Use Cases
-                            </span>
+                            <span class="badge bg-primary text-white badge-pill-custom">📖 บทเรียนที่ 3</span>
+                            <span class="badge text-white badge-pill-custom" style="background-color: var(--accent-purple);">🛠️ Advanced Hardware, Microcontrollers & Applications</span>
                         </div>
                         <h1 class="fw-bold text-white display-6 mb-2">
-                            การประยุกต์ใช้งาน IoT (IoT Applications) 🌟
+                            ฮาร์ดแวร์ ไมโครคอนโทรลเลอร์ และการประยุกต์ใช้งาน IoT ⚙️
                         </h1>
                         <p class="text-light opacity-75 fs-6 mb-0 lh-lg">
-                            ท่องโลกเทคโนโลยีเปลี่ยนอนาคต! วิเคราะห์กรณีศึกษา โครงสร้างเซนเซอร์ โปรโตคอล และการประยุกต์ใช้ IoT ในชีวิตจริงอย่างเห็นภาพ
+                            เจาะลึกสเปกไมโครคอนโทรลเลอร์ สถาปัตยกรรมขาพิน (GPIO) บัสสื่อสารข้อมูล เซ็นเซอร์อุตสาหกรรม และการเขียนโปรแกรมควบคุมเชิงลึก
                         </p>
                     </div>
 
@@ -348,281 +266,281 @@ if (file_exists('db_connect.php')) {
                                     <i class="bi bi-play-fill fs-4"></i>
                                 </div>
                                 <div>
-                                    <h5 class="fw-bold text-dark mb-0">วิดีโอการเรียนรู้บทที่ 3 🎬</h5>
-                                    <small class="text-muted">ชมตัวอย่างการนำ IoT ไปใช้งานในภาคส่วนต่างๆ ทั่วโลก</small>
+                                    <h5 class="fw-bold text-dark mb-0">วิดีโอเจาะลึกฮาร์ดแวร์และเซ็นเซอร์ 🎬</h5>
+                                    <small class="text-muted">ศึกษาการทำงานของพินอินเทอร์เฟซและวงจรอิเล็กทรอนิกส์ IoT</small>
                                 </div>
                             </div>
                             <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/VOV2j4N_U3o" title="IoT Applications Video" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/VOV2j4N_U3o" title="IoT Hardware Video" allowfullscreen></iframe>
                             </div>
                         </div>
                     </section>
 
-                    <!-- 💡 Intro Concept Card -->
+                    <!-- 🔬 Section 1: Microcontrollers Comparison -->
                     <section class="mb-5 position-relative" style="z-index: 1;">
-                        <div class="p-4 rounded-4" style="background: linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%); border: 1px solid #bfdbfe;">
-                            <h4 class="fw-bold text-primary mb-2 d-flex align-items-center gap-2">
-                                <span class="fs-4">💡</span> IoT เปลี่ยนโลกอย่างไร?
-                            </h4>
-                            <p class="text-secondary mb-0 small lh-lg">
-                                IoT ไม่ได้เป็นเพียงแค่ฮาร์ดแวร์หรือสายไฟ แต่มันคือระบบนิเวศการรับส่งข้อมูลแบบเรียลไทม์ (Real-time Ecosystem) ที่ช่วยให้อุปกรณ์รอบตัวเราสื่อสารกันเอง ตัดสินใจอัตโนมัติ และเชื่อมโลกกายภาพเข้ากับโลกดิจิทัลได้อย่างไร้รอยต่อ!
-                            </p>
+                        <h3 class="fw-bold text-dark mb-3 d-flex align-items-center gap-2">
+                            <span class="fs-3">💻</span> 1. สเปกไมโครคอนโทรลเลอร์ (Microcontroller Boards)
+                        </h3>
+                        <p class="text-muted mb-4 small">
+                            การเลือกใช้ฮาร์ดแวร์ในงาน IoT ต้องพิจารณาหน่วยความจำ (Flash/RAM), ความเร็วซีพียู, พลังงานที่ใช้ และการรองรับการเชื่อมต่อไร้สาย (Wi-Fi/Bluetooth)
+                        </p>
+
+                        <div class="table-custom-wrapper shadow-sm mb-4">
+                            <table class="table table-hover align-middle mb-0 text-center" style="font-size: 0.88rem;">
+                                <thead class="table-primary">
+                                    <tr>
+                                        <th class="py-3 text-start ps-4">บอร์ดไมโครคอนโทรลเลอร์</th>
+                                        <th class="py-3">ชิปประมวลผล (MCU)</th>
+                                        <th class="py-3">Clock Speed</th>
+                                        <th class="py-3">Flash / RAM</th>
+                                        <th class="py-3">การเชื่อมต่อไร้สาย</th>
+                                        <th class="py-3 text-start">การใช้งานที่เหมาะสม</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="fw-bold text-start ps-4 text-primary">Arduino Uno R3</td>
+                                        <td>ATmega328P (8-bit)</td>
+                                        <td>16 MHz</td>
+                                        <td>32 KB / 2 KB</td>
+                                        <td><span class="badge bg-secondary">ไม่มี (ต้องต่อ Wi-Fi Shield)</span></td>
+                                        <td class="text-start">งานทดลองพื้นฐาน, ควบคุมมอเตอร์/รีเลย์เดี่ยวๆ</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold text-start ps-4 text-primary">ESP8266 (NodeMCU)</td>
+                                        <td>Tensilica 32-bit</td>
+                                        <td>80 / 160 MHz</td>
+                                        <td>4 MB / 80 KB</td>
+                                        <td><span class="badge bg-success">Wi-Fi 2.4GHz</span></td>
+                                        <td class="text-start">โปรเจกต์ Smart Home ราคาประหยัด, ส่งค่าเซนเซอร์ขึ้น Cloud</td>
+                                    </tr>
+                                    <tr class="table-light">
+                                        <td class="fw-bold text-start ps-4 text-success">ESP32 DevKit V1</td>
+                                        <td>Dual-Core Tensilica</td>
+                                        <td>160 / 240 MHz</td>
+                                        <td>4 MB / 520 KB</td>
+                                        <td><span class="badge bg-success">Wi-Fi + BLE 4.2</span></td>
+                                        <td class="text-start">งาน IoT ระดับสูง, กล้อง AI (ESP32-CAM), บลูทูธเกตเวย์</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold text-start ps-4 text-primary">Raspberry Pi Pico</td>
+                                        <td>RP2040 Dual ARM Cortex-M0+</td>
+                                        <td>133 MHz</td>
+                                        <td>2 MB / 264 KB</td>
+                                        <td><span class="badge bg-secondary">Pico W มี Wi-Fi</span></td>
+                                        <td class="text-start">งานที่ต้องการความแม่นยำสูง (PIO), ควบคุมฮาร์ดแวร์เรียลไทม์</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </section>
 
-                    <!-- 🌐 6 Main IoT Domains -->
+                    <!-- ⚡ Section 1.1: ESP32 GPIO Deep Dive & Rules -->
+                    <section class="mb-5 position-relative" style="z-index: 1;">
+                        <div class="p-4 rounded-4 bg-white border shadow-sm">
+                            <h4 class="fw-bold text-dark mb-3 d-flex align-items-center gap-2">
+                                <span class="fs-4 text-primary">⚡</span> ข้อควรรู้เชิงลึกในการใช้งานขาพิน ESP32 (GPIO Multiplexing & Rules)
+                            </h4>
+                            <p class="text-muted small mb-3">
+                                การต่อวงจรจริงกับ ESP32 วิศวกรและนักพัฒนาจำเป็นต้องระมัดระวังคุณสมบัติพิเศษของขาพินแต่ละกลุ่มเพื่อป้องกันความเสียหาย:
+                            </p>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <div class="p-3 rounded-3 bg-light border h-100">
+                                        <h6 class="fw-bold text-danger mb-2">🚫 Input-Only Pins (GPIO 34-39)</h6>
+                                        <p class="small text-muted mb-0">เป็นขาที่รับสัญญาณเข้าได้อย่างเดียว (ไม่มีตัวต้านทาน Pull-up/Pull-down ภายใน) ห้ามนำไปใช้สั่งงาน Relay หรือ LED ที่ต้องส่งสัญญาณออก (Output)</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 rounded-3 bg-light border h-100">
+                                        <h6 class="fw-bold text-warning mb-2">⚠️ Flash Pins (GPIO 6-11)</h6>
+                                        <p class="small text-muted mb-0">เชื่อมต่ออยู่กับหน่วยความจำ Flash ภายในชิป ห้ามนำมาใช้งานเด็ดขาด เพราะจะทำให้บอร์ดแครช (Crash) หรือบูตไม่ขึ้นทันที</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 rounded-3 bg-light border h-100">
+                                        <h6 class="fw-bold text-success mb-2">💡 Touch & ADC Pins</h6>
+                                        <p class="small text-muted mb-0">รองรับระบบสัมผัส Capacitive Touch (GPIO 0, 2, 4, 12-15, 27, 32, 33) และรองรับการแปลงสัญญาณ Analog เป็น Digital (ADC1 แนะนำใช้งานร่วมกับ Wi-Fi)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 🔌 Section 2: Hardware Bus Protocols (I2C, SPI, UART) -->
+                    <section class="mb-5 position-relative" style="z-index: 1;">
+                        <h3 class="fw-bold text-dark mb-3 d-flex align-items-center gap-2">
+                            <span class="fs-3">🔌</span> 2. บัสสื่อสารข้อมูลฮาร์ดแวร์ (Communication Interfaces)
+                        </h3>
+                        <p class="text-muted mb-4 small">
+                            การเชื่อมต่อเซนเซอร์และโมดูลเข้ากับไมโครคอนโทรลเลอร์ อาศัยโปรโตคอลระดับฮาร์ดแวร์มาตรฐาน ดังนี้:
+                        </p>
+
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="p-4 rounded-4 bg-white border h-100 shadow-sm">
+                                    <div class="text-primary fs-3 mb-2"><i class="bi bi-diagram-2"></i></div>
+                                    <h5 class="fw-bold text-dark">I2C (Inter-Integrated Circuit)</h5>
+                                    <p class="small text-muted mb-2">ใช้สายสัญญาณเพียง 2 เส้น ได้แก่ <strong>SDA</strong> (Data) และ <strong>SCL</strong> (Clock) รองรับการต่ออุปกรณ์หลายตัวบนบัสเดียวกันผ่านหมายเลข Address</p>
+                                    <span class="badge bg-info bg-opacity-10 text-dark small">เหมาะกับ: จอ OLED, เซนเซอร์ BME280, RTC</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-4 rounded-4 bg-white border h-100 shadow-sm">
+                                    <div class="text-success fs-3 mb-2"><i class="bi bi-hdd-network"></i></div>
+                                    <h5 class="fw-bold text-dark">SPI (Serial Peripheral Interface)</h5>
+                                    <p class="small text-muted mb-2">ใช้สายสัญญาณ 4 เส้น ได้แก่ <strong>MOSI, MISO, SCK, CS</strong> มีความเร็วในการรับส่งข้อมูลสูงมากแบบ Full-Duplex แต่ใช้ขาพินเยอะกว่า</p>
+                                    <span class="badge bg-success bg-opacity-10 text-success small">เหมาะกับ: การ์ด SD, โมดูล RFID, หน้าจอ TFT</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-4 rounded-4 bg-white border h-100 shadow-sm">
+                                    <div class="text-warning fs-3 mb-2"><i class="bi bi-arrow-left-right"></i></div>
+                                    <h5 class="fw-bold text-dark">UART (Serial Communication)</h5>
+                                    <p class="small text-muted mb-2">สื่อสารแบบอะซิงโครนัสผ่านขา <strong>TX (Transmit)</strong> และ <strong>RX (Receive)</strong> ใช้รับส่งข้อมูลระหว่างไมโครคอนโทรลเลอร์กับคอมพิวเตอร์หรือโมดูล GPS</p>
+                                    <span class="badge bg-warning bg-opacity-10 text-dark small">เหมาะกับ: โมดูล GPS, จอ Serial HMI, Debug Log</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 🔋 Section 2.1: Power Management & Deep Sleep -->
+                    <section class="mb-5 position-relative" style="z-index: 1;">
+                        <div class="p-4 rounded-4 bg-light border shadow-sm">
+                            <h4 class="fw-bold text-dark mb-3 d-flex align-items-center gap-2">
+                                <span class="fs-4 text-success">🔋</span> การจัดการพลังงานและระบบประหยัดพลังงาน (Deep Sleep Mode)
+                            </h4>
+                            <p class="text-muted small mb-3">
+                                งาน IoT ที่ติดตั้งตามแปลงเกษตรหรือพื้นที่ห่างไกลมักใช้พลังงานจากแบตเตอรี่หรือแผงโซล่าเซลล์ การเปิด Wi-Fi และซีพียูทำงานตลอดเวลาจะทำให้แบตเตอรี่หมดไว เทคโนโลยี **Deep Sleep Mode** จึงเข้ามามีบทบาทสำคัญ:
+                            </p>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled small text-secondary space-y-2 mb-0">
+                                        <li>💤 <strong>หลักการทำงาน:</strong> ปิดการทำงานของ CPU หลัก, Wi-Fi, และ Bluetooth คงเหลือไว้เพียง RTC Timer เพื่อปลุก (Wake up) ระบบตามเวลาที่กำหนด</li>
+                                        <li>📉 <strong>อัตราการกินไฟ:</strong> ลดลงจากปกติ (ประมาณ 80-160 mA) เหลือเพียงไม่กี่ไมโครแอมป์ ($\mu A$)</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled small text-secondary space-y-2 mb-0">
+                                        <li>⏱️ <strong>การตั้งเวลาปลุก:</strong> ใช้คำสั่ง `esp_sleep_enable_timer_wakeup(TIME_IN_US)`</li>
+                                        <li>🔄 <strong>วงจรการทำงาน:</strong> ตื่นขึ้นมา -> อ่านค่าเซนเซอร์ -> ส่งข้อมูลขึ้น Cloud ผ่าน MQTT/HTTP -> เข้าสู่โหมด Deep Sleep วนลูปประหยัดพลังงาน</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 🌡️ Section 3: Advanced Sensors & Actuators -->
+                    <section class="mb-5 position-relative" style="z-index: 1;">
+                        <h3 class="fw-bold text-dark mb-3 d-flex align-items-center gap-2">
+                            <span class="fs-3">🌡️</span> 3. เซนเซอร์และแอคทูเอเตอร์ (Sensors & Actuators)
+                        </h3>
+                        <p class="text-muted mb-4 small">
+                            การเลือกเซนเซอร์ให้เหมาะสมกับงานโปรเจกต์ดิจิทัลบิสซิเนสและสมาร์ตฟาร์ม:
+                        </p>
+
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-6">
+                                <div class="p-4 rounded-4 bg-light border h-100">
+                                    <h5 class="fw-bold text-primary mb-3"><i class="bi bi-thermometer-sun me-2"></i>กลุ่มเซนเซอร์สิ่งแวดล้อม (Environmental)</h5>
+                                    <ul class="list-unstyled small text-secondary space-y-2 mb-0">
+                                        <li><strong>DHT11 / DHT22:</strong> วัดอุณหภูมิและความชื้นสัมพัทธ์ (DHT22 แม่นยำสูงกว่า)</li>
+                                        <li><strong>BME280:</strong> วัดอุณหภูมิ ความชื้น และความกดอากาศ ผ่านบัส I2C ความแม่นยำสูงระดับอุตสาหกรรม</li>
+                                        <li><strong>MQ-135 / MQ-2:</strong> ตรวจวัดคุณภาพอากาศ แก๊สพิษ ควัน และ LPG สำหรับระบบความปลอดภัย</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-4 rounded-4 bg-light border h-100">
+                                    <h5 class="fw-bold text-success mb-3"><i class="bi bi-sliders me-2"></i>กลุ่มเซนเซอร์เกษตรและควบคุม (Agriculture & Actuators)</h5>
+                                    <ul class="list-unstyled small text-secondary space-y-2 mb-0">
+                                        <li><strong>Capacitive Soil Moisture:</strong> วัดความชื้นในดินแบบไม่เกิดสนิม (ทนทานกว่าแบบแท่งโลหะเปลือย)</li>
+                                        <li><strong>HX711 + Load Cell:</strong> เซนเซอร์ชั่งน้ำหนักดิจิทัล ใช้ทำตู้สินค้าอัจฉริยะหรือเครื่องชั่งสมาร์ตฟาร์ม</li>
+                                        <li><strong>Relay Module (5V/12V):</strong> สวิตช์อิเล็กทรอนิกส์กำลังสูง สำหรับตัด-ต่อไฟบ้าน 220V ควบคุมปั๊มน้ำหรือหลอดไฟ</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Code Example Box -->
+                        <div class="fun-card p-4 bg-dark text-white border-0 rounded-4">
+                            <h6 class="fw-bold text-warning mb-2"><i class="bi bi-code-slash me-2"></i>ตัวอย่างโค้ด ESP32 อ่านค่าเซนเซอร์หลายตัว (DHT22 และ LDR แสง) พร้อมระบบเชื่อมต่อ Wi-Fi</h6>
+                            <div class="code-box">
+<span class="text-purple">#include</span> &lt;<span class="text-success">WiFi.h</span>&gt;<br>
+<span class="text-purple">#include</span> &lt;<span class="text-success">DHT.h</span>&gt;<br><br>
+<span class="text-cyan">#define</span> DHTPIN <span class="text-warning">4</span>       <span class="text-success">// ขา GPIO 4 ต่อ DHT22</span><br>
+<span class="text-cyan">#define</span> DHTTYPE DHT22<br>
+<span class="text-cyan">#define</span> LDR_PIN <span class="text-warning">34</span>     <span class="text-success">// ขา GPIO 34 (Analog Input) ต่อ LDR แสง</span><br><br>
+DHT dht(DHTPIN, DHTTYPE);<br><br>
+<span class="text-success">const char</span>* ssid = <span class="text-cyan">"IoT_Network_Lab"</span>;<br>
+<span class="text-success">const char</span>* password = <span class="text-cyan">"123456789"</span>;<br><br>
+<span class="text-success">void</span> <span class="text-white">setup</span>() {<br>
+&nbsp;&nbsp;Serial.begin(<span class="text-warning">115200</span>);<br>
+&nbsp;&nbsp;dht.begin();<br>
+&nbsp;&nbsp;pinMode(LDR_PIN, INPUT);<br><br>
+&nbsp;&nbsp;WiFi.begin(ssid, password);<br>
+&nbsp;&nbsp;Serial.print(<span class="text-cyan">"Connecting to WiFi"</span>);<br>
+&nbsp;&nbsp;<span class="text-purple">while</span> (WiFi.status() != WL_CONNECTED) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;delay(<span class="text-warning">500</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Serial.print(<span class="text-cyan">"."</span>);<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;Serial.println(<span class="text-cyan">"\nWiFi Connected!"</span>);<br>
+}<br><br>
+<span class="text-success">void</span> <span class="text-white">loop</span>() {<br>
+&nbsp;&nbsp;<span class="text-success">float</span> h = dht.readHumidity();<br>
+&nbsp;&nbsp;<span class="text-success">float</span> t = dht.readTemperature();<br>
+&nbsp;&nbsp;<span class="text-success">int</span> ldrValue = analogRead(LDR_PIN);<br><br>
+&nbsp;&nbsp;<span class="text-success">if</span> (isnan(h) || isnan(t)) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Serial.println(<span class="text-cyan">"Error reading DHT sensor!"</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple">return</span>;<br>
+&nbsp;&nbsp;}<br><br>
+&nbsp;&nbsp;Serial.printf(<span class="text-cyan">"Temp: %.1f C | Humidity: %.1f %% | Light Intensity: %d\n"</span>, t, h, ldrValue);<br>
+&nbsp;&nbsp;delay(<span class="text-warning">3000</span>);<br>
+}
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 🌍 Section 4: IoT Application Domains -->
                     <section class="mb-5 position-relative" style="z-index: 1;">
                         <h3 class="fw-bold text-dark mb-4 d-flex align-items-center gap-2">
-                            <span class="fs-3">🌍</span> โดเมนการใช้งานหลักของ IoT (IoT Domains)
+                            <span class="fs-3">🌍</span> 4. โดเมนการประยุกต์ใช้งาน IoT ในภาคธุรกิจและชีวิตจริง
                         </h3>
 
                         <div class="row g-4">
-                            
-                            <!-- 1. Smart Home -->
                             <div class="col-md-6">
                                 <div class="domain-card h-100 d-flex flex-column">
                                     <div class="overflow-hidden position-relative">
-                                        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-100" alt="Smart Home">
+                                        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80" class="w-100" alt="Smart Home">
                                         <span class="position-absolute top-0 end-0 m-3 badge bg-primary badge-pill-custom">🏠 Smart Home</span>
                                     </div>
                                     <div class="p-4 d-flex flex-column flex-grow-1">
                                         <h5 class="fw-bold text-dark mb-2">บ้านและอาคารอัจฉริยะ</h5>
-                                        <p class="text-muted small mb-3">การรวมศูนย์ระบบควบคุมอาคารผ่านสถาปัตยกรรมไร้สายและการประมวลผลขอบ (Edge Computing) เพื่อความสะดวก ปลอดภัย และประหยัดพลังงาน</p>
+                                        <p class="text-muted small mb-3">ควบคุมระบบไฟฟ้า แอร์ และความปลอดภัยผ่านสมาร์ตโฟน ผสานระบบ Edge AI จดจำใบหน้าผู้พักอาศัย</p>
                                         <ul class="list-unstyled small text-secondary mb-0 mt-auto feature-list">
-                                            <li><strong>Home Automation:</strong> เชื่อมต่อ Zigbee, Z-Wave และ Matter สร้าง Mesh Network ร่วมกับ Local Gateway</li>
-                                            <li><strong>Biometric Access:</strong> ปลดล็อกประตูด้วย Capacitive Fingerprint และ Edge AI จดจำใบหน้า</li>
-                                            <li><strong>Safety Systems:</strong> เซนเซอร์ PIR, MQ Series ตรวจวัดแก๊สรั่ว พร้อมตัดไฟผ่าน Relay อัตโนมัติ</li>
+                                            <li>เชื่อมต่อ Zigbee / Wi-Fi Gateway</li>
+                                            <li>ระบบแจ้งเตือนแก๊สรั่วและควันไฟอัตโนมัติ</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- 2. Smart Farming -->
                             <div class="col-md-6">
                                 <div class="domain-card h-100 d-flex flex-column">
                                     <div class="overflow-hidden position-relative">
-                                        <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-100" alt="Smart Farming">
-                                        <span class="position-absolute top-0 end-0 m-3 badge bg-success badge-pill-custom">🌱 Precision Farming</span>
+                                        <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=800&q=80" class="w-100" alt="Smart Farming">
+                                        <span class="position-absolute top-0 end-0 m-3 badge bg-success badge-pill-custom">🌱 Smart Farming</span>
                                     </div>
                                     <div class="p-4 d-flex flex-column flex-grow-1">
-                                        <h5 class="fw-bold text-dark mb-2">การเกษตรแม่นยำสูง</h5>
-                                        <p class="text-muted small mb-3">ตรวจวัดปัจจัยสิ่งแวดล้อมด้วยเครือข่ายไร้สายระยะไกล (LoRaWAN) และโดรนสำรวจ เพื่อเพิ่มผลผลิตและลดการใช้สารเคมี</p>
+                                        <h5 class="fw-bold text-dark mb-2">การเกษตรแม่นยำสูง (Precision Farming)</h5>
+                                        <p class="text-muted small mb-3">ระบบรดน้ำอัตโนมัติอิงค่าความชื้นในดินจริง ลดการใช้น้ำและปุ๋ยผ่านเครือข่าย LoRaWAN ระยะไกล</p>
                                         <ul class="list-unstyled small text-secondary mb-0 mt-auto feature-list">
-                                            <li><strong>Soil Sensing:</strong> วัดค่า EC, ความชื้น VWC, pH และ NPK สื่อสารผ่าน RS485 Modbus RTU</li>
-                                            <li><strong>Automated Fertigation:</strong> คำนวณปริมาณน้ำตามอัตราการระเหย (ET0) ควบคุมปั๊มและวาล์วปุ๋ยอัตโนมัติ</li>
-                                            <li><strong>Aerial & Livestock:</strong> โดรนสำรวจดัชนีพืชพรรณ NDVI และแท็ก RFID/GPS ติดตามปศุสัตว์</li>
+                                            <li>เซนเซอร์วัดค่าความชื้นและ NPK ในดิน</li>
+                                            <li>ควบคุมปั๊มน้ำอัตโนมัติผ่านรีเลย์โมดูล</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- 3. Industrial IoT (IIoT) -->
-                            <div class="col-md-6">
-                                <div class="domain-card h-100 d-flex flex-column">
-                                    <div class="overflow-hidden position-relative">
-                                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-100" alt="Industrial IoT">
-                                        <span class="position-absolute top-0 end-0 m-3 badge bg-info text-dark badge-pill-custom">🏭 IIoT & Industry 4.0</span>
-                                    </div>
-                                    <div class="p-4 d-flex flex-column flex-grow-1">
-                                        <h5 class="fw-bold text-dark mb-2">โรงงานอัจฉริยะและระบบอุตสาหกรรม</h5>
-                                        <p class="text-muted small mb-3">ยกระดับสายการผลิตด้วย IoT ทางอุตสาหกรรม การสื่อสารระดับเรียลไทม์ และระบบบำรุงรักษาเชิงพยากรณ์</p>
-                                        <ul class="list-unstyled small text-secondary mb-0 mt-auto feature-list">
-                                            <li><strong>Fieldbus to Cloud:</strong> เชื่อมต่อ PLC และเครื่องจักรผ่าน OPC UA และ Modbus TCP เข้า SCADA/ERP</li>
-                                            <li><strong>Predictive Maintenance:</strong> ตรวจวัดแรงสั่นสะเทือนด้วย FFT เพื่อคาดการณ์ความเสียหายของมอเตอร์</li>
-                                            <li><strong>Digital Twins & AGV:</strong> จำลองภาพเสมือนของโรงงาน ควบคู่หุ่นยนต์ขนส่งนำทางด้วย LiDAR บน Private 5G</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 4. Healthcare -->
-                            <div class="col-md-6">
-                                <div class="domain-card h-100 d-flex flex-column">
-                                    <div class="overflow-hidden position-relative">
-                                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-100" alt="Healthcare IoMT">
-                                        <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark badge-pill-custom">⌚ IoMT & Wearables</span>
-                                    </div>
-                                    <div class="p-4 d-flex flex-column flex-grow-1">
-                                        <h5 class="fw-bold text-dark mb-2">การแพทย์และอุปกรณ์สวมใส่อัจฉริยะ</h5>
-                                        <p class="text-muted small mb-3">โครงข่ายอุปกรณ์ตรวจวัดสัญญาณชีพขนาดเล็ก ติดตามสุขภาพทางไกล และระบบช่วยเหลือการแพทย์ฉุกเฉิน</p>
-                                        <ul class="list-unstyled small text-secondary mb-0 mt-auto feature-list">
-                                            <li><strong>Biomedical Sensing:</strong> ตรวจวัดค่า SpO2 ด้วย PPG และตรวจจับคลื่นไฟฟ้าหัวใจ (ECG) เช็กภาวะหัวใจเต้นผิดจังหวะ</li>
-                                            <li><strong>Continuous Glucose (CGM):</strong> เข็มเซนเซอร์วัดระดับน้ำตาลส่งข้อมูลผ่าน BLE เข้ามือถือเรียลไทม์</li>
-                                            <li><strong>Fall Detection:</strong> ใช้ IMU 6-Axis ตรวจจับการหกล้มของผู้สูงอายุและแจ้งเตือน SOS พิกัด GPS อัตโนมัติ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 5. Smart City -->
-                            <div class="col-md-6">
-                                <div class="domain-card h-100 d-flex flex-column">
-                                    <div class="overflow-hidden position-relative">
-                                        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-100" alt="Smart City">
-                                        <span class="position-absolute top-0 end-0 m-3 badge bg-secondary badge-pill-custom">🏙️ Smart City</span>
-                                    </div>
-                                    <div class="p-4 d-flex flex-column flex-grow-1">
-                                        <h5 class="fw-bold text-dark mb-2">เมืองอัจฉริยะและการขนส่ง</h5>
-                                        <p class="text-muted small mb-3">โครงสร้างพื้นฐานเชื่อมโยงข้อมูลเมือง ระบบบริหารจราจร และห่วงโซ่อุปทานอัจฉริยะเพื่อยกระดับคุณภาพชีวิต</p>
-                                        <ul class="list-unstyled small text-secondary mb-0 mt-auto feature-list">
-                                            <li><strong>Adaptive Traffic:</strong> กล้อง AI ร่วมกับเซนเซอร์สนามแม่เหล็กปรับสัญญาณไฟจราจรตามความหนาแน่น</li>
-                                            <li><strong>Environmental Sensing:</strong> สถานีตรวจวัด PM2.5 และเซนเซอร์ อัลตราโซนิกตรวจจับความจุถังขยะเมือง</li>
-                                            <li><strong>Cold Chain Logistics:</strong> ติดตามตู้สินค้าด้วย GNSS ควบคุมอุณหภูมิขนส่งอาหารและเวชภัณฑ์</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 6. Smart Grid -->
-                            <div class="col-md-6">
-                                <div class="domain-card h-100 d-flex flex-column">
-                                    <div class="overflow-hidden position-relative">
-                                        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-100" alt="Smart Grid">
-                                        <span class="position-absolute top-0 end-0 m-3 badge bg-danger badge-pill-custom">⚡ Smart Grid</span>
-                                    </div>
-                                    <div class="p-4 d-flex flex-column flex-grow-1">
-                                        <h5 class="fw-bold text-dark mb-2">โครงข่ายไฟฟ้าอัจฉริยะ</h5>
-                                        <p class="text-muted small mb-3">สถาปัตยกรรมไฟฟ้าสองทาง (Two-way Power & Data Flow) ที่บริหารจัดการพลังงานสะอาดและกักเก็บพลังงานอัตโนมัติ</p>
-                                        <ul class="list-unstyled small text-secondary mb-0 mt-auto feature-list">
-                                            <li><strong>AMI Infrastructure:</strong> สมาร์ทมิเตอร์ส่งข้อมูลสองทาง คิดคำนวณอัตราค่าไฟตามช่วงเวลา (TOU)</li>
-                                            <li><strong>DER Balancing:</strong> รักษาสมดุลพลังงานจากโซลาร์เซลล์ร่วมกับแบตเตอรี่กักเก็บพลังงาน (BESS)</li>
-                                            <li><strong>V2G Tech:</strong> สถานีชาร์จ EV ดึงพลังงานจากรถยนต์กลับเข้าสู่ระบบไฟฟ้าในช่วงความต้องการสูง (Peak)</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </section>
-
-                    <!-- 🔥 Highlight Box: Edge AI + IoT -->
-                    <section class="mb-5 position-relative" style="z-index: 1;">
-                        <div class="p-4 p-md-5 rounded-4 text-white position-relative overflow-hidden" style="background: linear-gradient(135deg, #1e293b 0%, #312e81 100%);">
-                            <div class="row align-items-center">
-                                <div class="col-lg-8">
-                                    <span class="badge bg-warning text-dark badge-pill-custom mb-2">🚀 Hot Trend 2026</span>
-                                    <h4 class="fw-bold text-warning mb-2">AIoT (Artificial Intelligence + IoT)</h4>
-                                    <p class="small text-light opacity-75 mb-0 lh-lg">
-                                        ปัจจุบัน IoT ไม่ใช่แค่การ "ส่งข้อมูล" ไปเก็บไว้บน Cloud อีกต่อไป แต่มีการใส่ประมวลผล <strong>Edge AI / Machine Learning</strong> ลงในบอร์ดขนาดเล็ก (เช่น ESP32-CAM หรือ Raspberry Pi) ทำให้เซนเซอร์สามารถคิดและตัดสินใจได้ทันทีที่อุปกรณ์ โดยไม่ต้องรอคำสั่งจากเซิร์ฟเวอร์!
-                                    </p>
-                                </div>
-                                <div class="col-lg-4 text-center mt-3 mt-lg-0">
-                                    <div class="p-3 bg-white bg-opacity-10 rounded-4 border border-white border-opacity-10">
-                                        <i class="bi bi-cpu-fill text-info display-4 mb-2"></i>
-                                        <div class="fw-bold text-white small">Edge Computing & Face Recognition</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- 🎁 Benefits of IoT Section -->
-                    <section class="mb-5 position-relative" style="z-index: 1;">
-                        <h3 class="fw-bold text-dark mb-4 d-flex align-items-center gap-2">
-                            <span class="fs-3">🎁</span> ประโยชน์หลักของการประยุกต์ใช้ IoT
-                        </h3>
-
-                        <div class="row g-3">
-                            <div class="col-md-4">
-                                <div class="p-3 rounded-4 bg-light border h-100">
-                                    <div class="fs-3 text-primary mb-2">⚡</div>
-                                    <h6 class="fw-bold text-dark">1. เพิ่มประสิทธิภาพ</h6>
-                                    <p class="small text-muted mb-0">ประมวลผลข้อมูลมหาศาลรวดเร็ว แม่นยำ และช่วยลดข้อผิดพลาดจากมนุษย์ (Human Error)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="p-3 rounded-4 bg-light border h-100">
-                                    <div class="fs-3 text-success mb-2">🛋️</div>
-                                    <h6 class="fw-bold text-dark">2. สะดวกสบาย</h6>
-                                    <p class="small text-muted mb-0">ทำหน้าที่การทำงานประจำ (Routine) แทนมนุษย์ ปลดล็อกเวลาให้ไปสร้างสรรค์งานสำคัญ</p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="p-3 rounded-4 bg-light border h-100">
-                                    <div class="fs-3 text-danger mb-2">💰</div>
-                                    <h6 class="fw-bold text-dark">3. ลดต้นทุนยั่งยืน</h6>
-                                    <p class="small text-muted mb-0">ลดค่าใช้จ่ายการดูแลรักษา ควบคุมกระบวนการแบบ Just-in-Time ลดของเสียและต้นทุนจม</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <div class="p-3 rounded-4 bg-light border h-100">
-                                    <div class="fs-3 text-warning mb-2">📲</div>
-                                    <h6 class="fw-bold text-dark">4. ไร้ข้อจำกัดเวลาและสถานที่</h6>
-                                    <p class="small text-muted mb-0">สามารถติดตามผล ควบคุมอุปกรณ์ และตรวจเช็กสถานะการทำงานได้ตลอด 24 ชั่วโมงผ่านมือถือ</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <div class="p-3 rounded-4 bg-light border h-100">
-                                    <div class="fs-3 text-purple mb-2" style="color: var(--accent-purple);">🏢</div>
-                                    <h6 class="fw-bold text-dark">5. พลิกโฉมองค์กรยุคใหม่</h6>
-                                    <p class="small text-muted mb-0">ยกระดับธุรกิจไปสู่ Smart Business / Smart Factory สร้างผลประกอบการและจุดเด่นเหนือนวัตกรรมคู่แข่ง</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- 📶 Comparison Table -->
-                    <section class="mb-5 position-relative" style="z-index: 1;">
-                        <h3 class="fw-bold text-dark mb-4 d-flex align-items-center gap-2">
-                            <span class="fs-3">📡</span> เปรียบเทียบเทคโนโลยีไร้สายใน IoT
-                        </h3>
-                        
-                        <div class="table-custom-wrapper shadow-sm">
-                            <table class="table table-hover align-middle mb-0 text-center">
-                                <thead class="table-primary">
-                                    <tr>
-                                        <th class="py-3 text-start ps-4">เทคโนโลยี (Technology) 🛰️</th>
-                                        <th class="py-3">ระยะสื่อสาร</th>
-                                        <th class="py-3">ความเร็วรับส่ง</th>
-                                        <th class="py-3">พลังงาน</th>
-                                        <th class="py-3 text-start">กรณีศึกษา (Use Case)</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="small">
-                                    <tr>
-                                        <td class="fw-bold text-start ps-4 text-primary">BLE (Bluetooth Low Energy)</td>
-                                        <td>10 - 100 ม.</td>
-                                        <td>1 - 2 Mbps</td>
-                                        <td><span class="badge bg-success bg-opacity-10 text-success">ต่ำมาก 🔋</span></td>
-                                        <td class="text-start">Smart Key, Smart Watch, Health Sensor</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="fw-bold text-start ps-4 text-primary">Zigbee / Z-Wave</td>
-                                        <td>10 - 100 ม. (Mesh)</td>
-                                        <td>250 kbps</td>
-                                        <td><span class="badge bg-success bg-opacity-10 text-success">ต่ำมาก 🔋</span></td>
-                                        <td class="text-start">สวิตช์ไฟอัจฉริยะ, เซนเซอร์ประตู Smart Home</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="fw-bold text-start ps-4 text-primary">Wi-Fi (802.11 b/g/n/ax)</td>
-                                        <td>30 - 100 ม.</td>
-                                        <td>สูง (1+ Gbps)</td>
-                                        <td><span class="badge bg-danger bg-opacity-10 text-danger">สูง 🪫</span></td>
-                                        <td class="text-start">กล้องวงจรปิด IP Camera, Video Streaming</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="fw-bold text-start ps-4 text-primary">LoRaWAN</td>
-                                        <td>2 - 15 กม.</td>
-                                        <td>0.3 - 50 kbps</td>
-                                        <td><span class="badge bg-success bg-opacity-10 text-success">ต่ำมาก 🔋</span></td>
-                                        <td class="text-start">ฟาร์มเกษตรแปลงใหญ่, สมาร์ตมิเตอร์น้ำในเมือง</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="fw-bold text-start ps-4 text-primary">NB-IoT / LTE-M</td>
-                                        <td>10 - 15 กม. (Cellular)</td>
-                                        <td>20 - 250 kbps</td>
-                                        <td><span class="badge bg-info bg-opacity-10 text-info">ต่ำ ⚡</span></td>
-                                        <td class="text-start">ติดตามตู้คอนเทนเนอร์, วัดมลพิษในเขตเมือง</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="fw-bold text-start ps-4 text-primary">5G Cellular Network</td>
-                                        <td>ครอบคลุมกว้างขวาง</td>
-                                        <td>สูงมาก (Up to 10 Gbps)</td>
-                                        <td><span class="badge bg-warning bg-opacity-10 text-dark">ปานกลาง-สูง</span></td>
-                                        <td class="text-start">หุ่นยนต์ AGV ไร้คนขับ, การผ่าตัดทางไกล</td>
-                                    </tr>
-                                </tbody>
-                            </table>
                         </div>
                     </section>
 
@@ -630,11 +548,10 @@ if (file_exists('db_connect.php')) {
                     <section class="mt-5 position-relative" style="z-index: 1;">
                         <div class="card border-0 rounded-4 text-white shadow-lg overflow-hidden" style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);">
                             <div class="card-body p-4 p-md-5 text-center">
-                                <h3 class="fw-bold mb-3">🎉 เรียนรู้บทที่ 3 ครบถ้วนแล้ว!</h3>
+                                <h3 class="fw-bold mb-3">🎉 เรียนรู้บทที่ 3 ครบถ้วนและเจาะลึกแล้ว!</h3>
                                 <p class="mb-4 text-white-50 small lh-lg px-md-5">
-                                    มาร่วมวัดระดับความเข้าใจเกี่ยวกับการประยุกต์ใช้ IoT เพื่อรับคะแนนสะสมกันเลยครับ!
+                                    ทดสอบความเข้าใจเกี่ยวกับฮาร์ดแวร์ ไมโครคอนโทรลเลอร์ และการเขียนโปรแกรมเซนเซอร์ เพื่อสะสมคะแนนประจำบทเรียนกันเลยครับ!
                                 </p>
-                                
                                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9orpxkZsK36jRL5P6zygwTgtQqdytghDyPBLuN6u2-lrLVQ/viewform?usp=publish-editor" 
                                    target="_blank" 
                                    class="btn btn-light btn-lg rounded-pill px-5 fw-bold text-primary btn-playful pulse-btn">
@@ -649,8 +566,8 @@ if (file_exists('db_connect.php')) {
                         <a href="lesson2.php" class="btn btn-outline-secondary rounded-pill px-4 btn-playful">
                             <i class="bi bi-arrow-left me-1"></i> ย้อนกลับบทที่ 2
                         </a>
-                        <a href="home.php" class="btn btn-primary rounded-pill px-4 btn-playful">
-                            หน้ารวมบทเรียน <i class="bi bi-grid-fill ms-1"></i>
+                        <a href="lesson4.php" class="btn btn-primary rounded-pill px-4 btn-playful">
+                            ไปบทที่ 4 <i class="bi bi-arrow-right ms-1"></i>
                         </a>
                     </div>
 
@@ -659,12 +576,10 @@ if (file_exists('db_connect.php')) {
         </div>
     </div>
 
-    <!-- Back To Top Button -->
     <button id="btn-back-to-top" title="กลับขึ้นด้านบน">
         <i class="bi bi-arrow-up fs-5"></i>
     </button>
 
-    <!-- 🦶 ดึง Footer Component จากไฟล์ footer.php -->
     <?php 
     if (file_exists('footer.php')) {
         include 'footer.php'; 
@@ -672,29 +587,20 @@ if (file_exists('db_connect.php')) {
     ?>
     <footer class="bg-dark text-white-50 py-4 border-top border-secondary mt-auto">
         <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center small gap-3">
-            <div>
-                <a href="home.php" class="text-white text-decoration-none fw-semibold">🌐 IoT Learning Hub</a>
-            </div>
-            <div>
-                &copy; 2026 IoT E-Learning System. All rights reserved.
-            </div>
+            <div><a href="home.php" class="text-white text-decoration-none fw-semibold">🌐 IoT Learning Hub</a></div>
+            <div>&copy; 2026 IoT E-Learning System. All rights reserved.</div>
         </div>
     </footer>
     <?php } ?>
 
-    <!-- Bootstrap 5 JS Bundle CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- JavaScript สำหรับ Interactive Elements -->
     <script>
-        // 1. แถบ Scroll Progress Bar
         window.onscroll = function() {
             let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             let scrolled = (winScroll / height) * 100;
             document.getElementById("progress-bar").style.width = scrolled + "%";
 
-            // แสดง/ซ่อน ปุ่ม Back to top
             let backToTopBtn = document.getElementById("btn-back-to-top");
             if (winScroll > 300) {
                 backToTopBtn.style.display = "block";
@@ -703,7 +609,6 @@ if (file_exists('db_connect.php')) {
             }
         };
 
-        // 2. ปุ่ม Back to Top (Smooth Scroll)
         document.getElementById("btn-back-to-top").addEventListener("click", function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
